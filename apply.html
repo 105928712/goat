@@ -12,16 +12,23 @@
 <body>
 
     <!-- Navigation Bar -->
-    <header>
-        <nav>
+    <header class="site-header">
+        <div class="header-container">
+          <a href="index.html" class="logo">
+            <img src="images/placeholder.png" alt="Site Logo">
+          </a>
+          <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Job Descriptions</a></li>
-                <li><a href="apply.html" class="active">Apply</a></li>
-                <li><a href="about.html">About Us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="jobs.html">Jobs</a></li>
+              <li><a href="apply.html" class="active">Apply</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
-        </nav>
-    </header>
+          </nav>
+        </div>
+      </header>
+
+
 
     <!-- Main Content -->
     <main class="form">
@@ -100,9 +107,9 @@
             
                 <!-- Required Technical Skills -->
                 <label>Required Technical Skills: *</label><br>
-                <input type="checkbox" id="techSkills1" name="skills" required value="JavaScript"> JavaScript<br>
-                <input type="checkbox" id="techSkills2" name="skills" required value="HTML"> HTML<br>
-                <input type="checkbox" id="techSkills3" name="skills" required value="CSS"> CSS<br>
+                <input type="checkbox" id="techSkills1" name="skills[]" required value="JavaScript"> JavaScript<br>
+                <input type="checkbox" id="techSkills2" name="skills[]" required value="HTML"> HTML<br>
+                <input type="checkbox" id="techSkills3" name="skills[]" required value="CSS"> CSS<br>
             
                 <!-- Other Skills (Optional) -->
                 <label for="otherSkills">Other Skills:</label>
