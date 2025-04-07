@@ -1,0 +1,58 @@
+/* Filename: jobs.css */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+/* Last edited: 7th of April, 2025 */
+
+/* Job Title Styling */
+.job-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Job Description styling  */
+.job-description {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Salary and report Section */
+.salary-range,
+.report-to {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+/* Key responsibilities list... */
+.job-responsibilities {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.job-responsibilities li {
+    font-size: 1rem;
+}
+
+/* skills List */
+.required-skills {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.required-skills li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* section headings */
+section h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--font);
+    margin-top: 20px;
+}
