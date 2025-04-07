@@ -1,0 +1,47 @@
+/* Filename: styles.css */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+/* Last edited: 7th of April, 2025 */
+
+/* Global Styles and Colours */
+:root {
+    --light-bg: #f7f7ff;
+    --primary: #495867;
+    --primary-light: #bdd5ea;
+    --secondary: #577399;
+    --tertiary: #fe5f55;
+    --font: #333;
+    --font-light: #dadada;
+    --form-bg: #ffffff;
+}
+
+/* Base Styles for Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--font);
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+/* keyframes for fadein effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
