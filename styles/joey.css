@@ -1,0 +1,135 @@
+:root {
+    --light-bg: #f7f7ff;
+    --primary: #495867;
+    --primary-light: #bdd5ea;
+    --seconday: #577399;
+    --tertiary: #fe5f55;
+    --font: #333;
+    --font-light: #dadada;
+    --form-bg: #c5c5cc;
+}
+
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+
+header {
+    background-color: var(--primary);
+    color: var(--font);
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--font-light);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: var(--seconday);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9em;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+/* Form Styling */
+form {
+    background-color: var(--form-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--font-light);
+    border-radius: 4px;
+}
+
+form button {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Fieldset for Gender */
+fieldset {
+    border: 1px solid var(--font-light);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Form Layout */
+form section {
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* "Responsive" Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    form section {
+        width: 90%;
+    }
+}
+
+
+
+
