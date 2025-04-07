@@ -1,3 +1,9 @@
+/* Filename: joey.css */
+/* To be merged into styles.css later */
+/* (c) 2025 Joey Manani */
+
+
+/* Global Styles and Colours */
 :root {
     --light-bg: #f7f7ff;
     --primary: #495867;
@@ -9,13 +15,25 @@
     --form-bg: #ffffff;
 }
 
-/* General Page Styles */
+/* Apply Page Styles and Header */
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--light-bg);
     color: var(--font);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
 }
 
 header {
@@ -50,7 +68,26 @@ nav ul li a.active {
     text-decoration: underline;
 }
 
-main {
+footer {
+    background-color: var(--secondary);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.95em;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+/* Form Styles */
+
+main.form {
     padding: 40px 20px;
     display: flex;
     justify-content: center;
@@ -65,22 +102,13 @@ main {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--primary);
-}
-
-p {
-    font-size: 1.1em;
-    margin-bottom: 25px;
-}
-
 form label {
     display: block;
     margin-top: 15px;
     font-weight: 600;
 }
+
+form legend { font-weight: 600; }
 
 form input,
 form select,
@@ -133,13 +161,4 @@ form button {
 
 form button:hover {
     background-color: var(--secondary);
-}
-
-footer {
-    background-color: var(--secondary);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.95em;
-    margin-top: 50px;
 }
