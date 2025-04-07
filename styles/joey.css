@@ -90,6 +90,7 @@ form textarea {
     margin-top: 6px;
     border: 1px solid var(--font-light);
     border-radius: 6px;
+    box-sizing: border-box;
     font-size: 1em;
 }
 
