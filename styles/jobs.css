@@ -3,56 +3,188 @@
 /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
 /* Last edited: 7th of April, 2025 */
 
+/* General Styling */
+:root {
+    --primary: #007bff;
+    --font: #333;
+    --background-light: #f4f4f4;
+    --background-dark: #333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--font);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    background-color: var(--background-dark);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.nav a {
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+    background-color: var(--primary);
+    transform: scale(1.05);
+}
+
+/* Job Posting Container */
+.container {
+    padding: 25px;
+    background: #fff;
+    max-width: 850px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
 /* Job Title Styling */
 .job-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
-/* Job Description styling  */
-.job-description {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-/* Salary and report Section */
-.salary-range,
-.report-to {
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 10px 0;
-}
-
-/* Key responsibilities list... */
-.job-responsibilities {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-.job-responsibilities li {
-    font-size: 1rem;
-}
-
-/* skills List */
-.required-skills {
-    list-style-type: square;
-    margin-left: 20px;
-}
-
-.required-skills li {
-    font-size: 1rem;
+/* Company Name & Location */
+.company-name, .location {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--font);
     margin-bottom: 8px;
 }
 
-/* section headings */
+/* Job Description Styling */
+.job-description {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Salary & Report-To Section */
+.salary-range, .report-to {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 12px 0;
+}
+
+/* Key Responsibilities List */
+.job-responsibilities {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.job-responsibilities li {
+    font-size: 1.1rem;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+.job-responsibilities li:hover {
+    color: var(--primary);
+}
+
+/* Skills List */
+.required-skills {
+    list-style-type: square;
+    margin-left: 25px;
+}
+
+.required-skills li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.required-skills li:hover {
+    color: var(--primary);
+}
+
+/* Section Headings */
 section h3 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--font);
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+/* Application Instructions */
+.application-instructions {
+    font-size: 1.1rem;
+    color: #444;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-left: 5px solid var(--primary);
+    margin-top: 25px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply Button */
+.apply-button {
+    display: block;
+    width: 220px;
+    text-align: center;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 18px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .job-title {
+        font-size: 1.8rem;
+    }
+
+    .apply-button {
+        width: 100%;
+    }
 }
