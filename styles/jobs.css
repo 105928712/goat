@@ -1,208 +1,188 @@
-<!DOCTYPE html> <!-- Declares the document as an HTML5 document -->
-<html lang="en"> <!-- Opens the HTML element with the language set to English -->
-<head> <!-- Contains meta-information and links related to the document -->
-    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 for proper text display -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page is responsive on mobile devices -->
-    <title>GOAT Job Opening - Software Developer</title> <!-- Sets the title of the document shown in the browser tab -->
-    <style>
-        /* Filename: jobs.css */
-        /* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
-        /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
-        /* Last edited: 7th of April, 2025 */
+/* Filename: jobs.css */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+/* Last edited: 7th of April, 2025 */
 
-        /* General Styling */
-        body {
-            font-family: Arial, sans-serif; /* Sets the font for the document */
-            background-color: #f4f4f4; /* Sets a light gray background color */
-            color: #333; /* Sets the default text color to dark gray */
-            margin: 0; /* Removes the default margin */
-            padding: 0; /* Removes the default padding */
-        }
+/* General Styling */
+:root {
+    --primary: #007bff;
+    --font: #333;
+    --background-light: #f4f4f4;
+    --background-dark: #333;
+}
 
-        /* Header */
-        .header {
-            background-color: #333; /* Dark background for the header */
-            color: #fff; /* White text color for the header */
-            padding: 15px; /* Padding around the header content */
-            text-align: center; /* Centers the header text */
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--font);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
 
-        /* Navigation Bar */
-        .nav {
-            background-color: #444; /* Darker background for the navigation bar */
-            overflow: hidden; /* Ensures that floated elements are contained */
-            text-align: center; /* Centers the navigation links */
-            padding: 10px 0; /* Adds vertical padding */
-        }
+/* Header */
+.header {
+    background-color: var(--background-dark);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-        .nav a {
-            display: inline-block; /* Displays links inline as block elements */
-            color: #fff; /* White text for navigation links */
-            padding: 10px 20px; /* Adds spacing around each link */
-            text-decoration: none; /* Removes underlines from links */
-            font-size: 1rem; /* Sets the font size of the links */
-        }
+/* Navigation Bar */
+.nav {
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
 
-        .nav a:hover {
-            background-color: #ddd; /* Light background on hover */
-            color: black; /* Changes text color to black when hovered */
-        }
+.nav a {
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
-        /* Job Posting Container */
-        .container {
-            padding: 20px; /* Inner spacing for the container */
-            background: #fff; /* White background for the content area */
-            max-width: 800px; /* Maximum width of the container */
-            margin: 20px auto; /* Centers the container and adds vertical spacing */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle 3D effect */
-        }
+.nav a:hover {
+    background-color: var(--primary);
+    transform: scale(1.05);
+}
 
-        /* Job Title Styling */
-        .job-title {
-            font-size: 2rem; /* Large font size for the job title */
-            font-weight: bold; /* Bold text for emphasis */
-            color: var(--primary); /* Text color using a CSS variable (set elsewhere) */
-            margin-bottom: 10px; /* Space below the title */
-            text-transform: uppercase; /* Converts text to uppercase */
-            letter-spacing: 1px; /* Slight spacing between characters */
-        }
+/* Job Posting Container */
+.container {
+    padding: 25px;
+    background: #fff;
+    max-width: 850px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
 
-        /* Company Name & Location */
-        .company-name, .location {
-            font-size: 1.2rem; /* Slightly larger font size */
-            font-weight: bold; /* Bold text for emphasis */
-            color: #333; /* Dark text color */
-            margin-bottom: 5px; /* Space below each element */
-        }
+.container:hover {
+    transform: scale(1.02);
+}
 
-        /* Job Description Styling */
-        .job-description {
-            font-size: 1.1rem; /* Readable font size for description paragraphs */
-            margin-bottom: 15px; /* Space below the description */
-        }
+/* Job Title Styling */
+.job-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
 
-        /* Salary & Reporting */
-        .salary-range, .report-to {
-            font-size: 1rem; /* Standard text size */
-            font-weight: 500; /* Medium emphasis on text */
-            margin: 10px 0; /* Vertical spacing around these sections */
-        }
+/* Company Name & Location */
+.company-name, .location {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--font);
+    margin-bottom: 8px;
+}
 
-        /* Responsibilities & Skills Lists */
-        .job-responsibilities, .required-skills {
-            list-style-type: disc; /* Uses disc bullet points */
-            margin-left: 20px; /* Indents the list */
-            margin-bottom: 15px; /* Adds space below the list */
-        }
+/* Job Description Styling */
+.job-description {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: #555;
+}
 
-        .job-responsibilities li, .required-skills li {
-            font-size: 1rem; /* Consistent list item text size */
-            padding: 5px 0; /* Vertical padding for each list item */
-        }
+/* Salary & Report-To Section */
+.salary-range, .report-to {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 12px 0;
+}
 
-        /* Section Headings */
-        section h3 {
-            font-size: 1.2rem; /* Sets font size for section headings */
-            font-weight: bold; /* Bold for emphasis */
-            color: var(--font); /* Uses a CSS variable for the text color */
-            margin-top: 20px; /* Adds space above the heading */
-        }
+/* Key Responsibilities List */
+.job-responsibilities {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
 
-        /* Application Instructions */
-        .application-instructions {
-            font-size: 1rem; /* Standard text size */
-            color: #444; /* Dark gray text color for contrast */
-            padding: 10px; /* Padding within the instructions area */
-            background-color: #e9ecef; /* Light background color */
-            border-left: 4px solid var(--primary); /* Colored vertical bar on the left */
-            margin-top: 20px; /* Adds space above the section */
-        }
+.job-responsibilities li {
+    font-size: 1.1rem;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
 
-        /* Apply Button */
-        .apply-button {
-            display: block; /* Makes the link behave like a block element */
-            width: 200px; /* Fixed width for the button */
-            text-align: center; /* Centers the button text */
-            background-color: var(--primary); /* Primary color background using a variable */
-            color: #fff; /* White text color */
-            font-size: 1rem; /* Sets the font size */
-            padding: 10px; /* Inner spacing within the button */
-            border-radius: 5px; /* Rounded corners for the button */
-            text-decoration: none; /* No underline */
-            margin-top: 15px; /* Space above the button */
-        }
+.job-responsibilities li:hover {
+    color: var(--primary);
+}
 
-        .apply-button:hover {
-            background-color: #0056b3; /* Darker background on hover for button */
-        }
-    </style> <!-- End of CSS styling block -->
-</head>
-<body> <!-- Opening of the body containing visible page content -->
+/* Skills List */
+.required-skills {
+    list-style-type: square;
+    margin-left: 25px;
+}
 
-    <header class="header">
-        <h1>GOAT</h1> <!-- Main header title displaying the company name or logo -->
-    </header>
+.required-skills li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
 
-    <nav class="nav">
-        <a href="#home">Home</a> <!-- Navigation link to the Home section -->
-        <a href="#jobs">Jobs</a> <!-- Navigation link to the Jobs section -->
-        <a href="#apply">Apply</a> <!-- Navigation link to the application section -->
-        <a href="#about">About</a> <!-- Navigation link to the About section -->
-    </nav>
+.required-skills li:hover {
+    color: var(--primary);
+}
 
-    <main class="container">
-        <h2 class="job-title">SDEV1 - Software Developer</h2> <!-- Displays the job title prominently -->
+/* Section Headings */
+section h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--font);
+    margin-top: 25px;
+}
 
-        <p class="company-name">Company: GOAT</p> <!-- Shows the company name -->
-        <p class="location">Location: Remote or Onsite</p> <!-- Shows the job location -->
+/* Application Instructions */
+.application-instructions {
+    font-size: 1.1rem;
+    color: #444;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-left: 5px solid var(--primary);
+    margin-top: 25px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
 
-        <p class="job-description">
-            <!-- Describes the role and key responsibilities of the job -->
-            This position requires the designing, building, testing, and maintenance of computer applications and programs. 
-            The role also involves translating user and client needs and requirements into functional code, while also identifying and resolving issues. 
-            Software Developers also ensure software performance, security, and reliability.
-        </p>
+/* Apply Button */
+.apply-button {
+    display: block;
+    width: 220px;
+    text-align: center;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 18px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
-        <p class="salary-range">
-            <strong>Salary Range:</strong> Up to $90,000 for entry-level positions <!-- Displays salary information -->
-        </p>
-        <p class="report-to">
-            <strong>Applicants Report To:</strong> Senior Software Developer (Level 3 Position) <!-- Shows the reporting structure -->
-        </p>
+.apply-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
 
-        <section>
-            <h3>Key Responsibilities</h3> <!-- Section header for job responsibilities -->
-            <ul class="job-responsibilities">
-                <li>Develop efficient and effective software solutions that meet client requirements.</li> <!-- Responsibility item 1 -->
-                <li>Ensure software applications are secure and well-protected.</li> <!-- Responsibility item 2 -->
-                <li>Maintain and update existing software applications.</li> <!-- Responsibility item 3 -->
-                <li>Provide technical support to users and stakeholders.</li> <!-- Responsibility item 4 -->
-                <li>Test software applications to identify and resolve bugs.</li> <!-- Responsibility item 5 -->
-                <li>Ensure software meets quality and performance standards.</li> <!-- Responsibility item 6 -->
-            </ul>
-        </section>
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        max-width: 90%;
+    }
 
-        <section>
-            <h3>Required Qualifications, Skills, Knowledge, and Attributes</h3> <!-- Section header for qualifications and skills -->
-            <ul class="required-skills">
-                <li>Experience with at least TWO of the following languages: JavaScript, HTML/CSS, Python, SQL, Java, C#.</li> <!-- Qualification item 1 -->
-                <li>Knowledge of software development methodologies (Agile).</li> <!-- Qualification item 2 -->
-                <li>Familiarity with databases and data structures.</li> <!-- Qualification item 3 -->
-                <li>Strong problem-solving and teamwork skills.</li> <!-- Qualification item 4 -->
-                <li>Effective communication skills.</li> <!-- Qualification item 5 -->
-            </ul>
-        </section>
-
-        <section class="application-instructions">
-            <h3>How to Apply</h3> <!-- Section header for application instructions -->
-            <p>Interested applicants can submit their resume and cover letter via the online portal.</p> <!-- Provides details on how to apply -->
-            <a href="#" class="apply-button">Apply Now</a> <!-- Call-to-action button for submitting an application -->
-        </section>
-    </main> <!-- End of main content container -->
-
-</body> <!-- End of the document body -->
-</html> <!-- End of the HTML document -->
+    .job-title {
+        font-size: 1.8rem;
+    }
 
     .apply-button {
         width: 100%;
