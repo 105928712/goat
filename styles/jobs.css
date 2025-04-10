@@ -188,3 +188,8 @@ section h3 {
         width: 100%;
     }
 }
+
+
+.no-number {
+    list-style-type: none;
+}
