@@ -4,13 +4,6 @@
 /* Last edited: 11th of April, 2025 */
 
 /* General Styling */
-:root {
-    --primary: #007bff;
-    --font: #333;
-    --background-light: #f4f4f4;
-    --background-dark: #333;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-light);
@@ -168,6 +161,10 @@ section h3 {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.no-number {
+    list-style-type: none;
+}
+
 .apply-button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
@@ -187,9 +184,4 @@ section h3 {
     .apply-button {
         width: 100%;
     }
-}
-
-
-.no-number {
-    list-style-type: none;
 }
