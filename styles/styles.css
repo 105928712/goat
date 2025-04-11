@@ -10,8 +10,10 @@
     --primary-light: #bdd5ea;
     --secondary: #577399;
     --tertiary: #fe5f55;
+    --quaternary: #2e5266;
+    --quinary: #175676;
     --font: #333;
-    --font-light: #dadada;
+    --font-light: #f7f7f7;
     --form-bg: #ffffff;
 }
 
@@ -51,5 +53,52 @@ p {
     }
     100% {
         opacity: 1;
+    }
+}
+
+/* Define letterSpacing animation */
+@keyframes letterSpacing {
+    0% {
+        letter-spacing: 0.2em;
+    }
+    100% {
+        letter-spacing: 0.1em;
+    }
+}
+
+/* Define shrink and move left animation */
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.5)
+    }
+}
+
+@keyframes x-shift {
+    0% {
+        transform: scale(0.5) translateX(0);
+    }
+    100% {
+        transform: scale(0.5) translateX(-300%);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInHidden {
+    0% {
+        display: none;
+    }
+    100% {
+        display: block;
     }
 }
