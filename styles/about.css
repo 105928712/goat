@@ -1,0 +1,36 @@
+/* Filename: about.css */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+/* Last edited: 11th of April, 2025 */
+/* Contains all relevant CSS for the about page */
+
+
+/* About Page Styles */
+
+dl, dt { 
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+dt {
+    font-weight: bolder;
+}
+
+#tables, #photos {
+    width: 43%;
+    text-align: center;
+}
+
+#tables {
+    float: left;
+}
+
+table {
+    margin: auto;
+}
+
+#photos {
+    float: right;
+}
+
+footer {clear:both;}
