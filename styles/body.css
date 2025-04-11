@@ -1,0 +1,197 @@
+section.goat {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-light);
+    flex-direction: column;
+}
+
+section.goat .big-title {
+    margin: 0;
+    font-size: 5rem;
+    color: var(--primary);;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeIn 1s forwards 2s, letterSpacing 0.5s forwards 2.8s;
+}
+
+section.goat .hero-tag {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--primary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeIn 1s forwards 4s;
+}
+
+section.goat .icon {
+    width: 20%;
+    height: auto;
+    user-select: none;
+    animation: fadeIn 1s forwards 0s, shrink 0.5s forwards 0.8s, x-shift 0.5s forwards 1.6s, fadeOut 0.3s forwards 3.5s;
+    position: absolute;
+}
+
+section.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10rem;
+    height: 40vh;
+}
+
+section.intro img {
+    width: 40%;
+    height: auto;
+    border-radius: 3%;
+    transition: transform 0.3s ease-in-out;
+}
+
+section.intro img:hover {
+    transform: scale(1.05);
+}
+
+section.intro div {
+    width: 100%;
+    height: auto;
+    margin-right: 10rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-align: center;
+    margin-top: 0;
+}
+
+section.statements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: var(--quaternary);
+}
+
+section.statements div.grid {
+    /* three columed grid layout */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 5rem;
+}
+
+section.statements h2 {
+    color: var(--primary-light)
+}
+
+section.statements p {
+    color: var(--font-light);
+}
+
+section.objectives {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section.objectives ul li {
+    font-size: 1.5rem;
+    background-color: white;
+    border-radius: 4px;
+    padding: 1rem;
+    list-style: none;
+    margin: 2rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+    cursor: default;
+}
+
+section.objectives ul li:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+section.training {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10rem;
+    height: 40vh;
+    background-color: var(--quinary);
+}
+
+section.training h2 {
+    color: var(--primary-light)
+}
+
+section.training p {
+    color: var(--font-light)
+}
+
+section.training img {
+    width: 40%;
+    height: auto;
+    border-radius: 3%;
+    transition: transform 0.3s ease-in-out;
+}
+
+section.training img:hover {
+    transform: scale(1.05);
+}
+
+section.training div {
+    width: 100%;
+    height: auto;
+    margin-left: 10rem;
+}
+
+section.award {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: var(--primary-light);
+}
+
+section.award p {
+    margin: 0px;
+    font-style: italic;
+}
+
+section.award a {
+    color: inherit;
+}
+
+section.award a {
+    color: inherit;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+section.award a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--tertiary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+
+section.award a:hover::after,
+section.award a.active::after {
+    width: 100%;
+}
