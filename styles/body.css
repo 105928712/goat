@@ -1,3 +1,9 @@
+/* Filename: body.css */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+/* Last edited: 12th of April, 2025 */
+/* Contains all relevant CSS for index.html */
+
 section.intro, section.statements, section.objectives, section.training, section.award {
     padding: 5vh;
 }
