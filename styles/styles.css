@@ -219,6 +219,13 @@ p {
     color: #aaa;
 }
 
+/* style the jira and github links */
+.footer-bottom a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
