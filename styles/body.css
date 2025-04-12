@@ -8,6 +8,8 @@
 /*              INDEX                */
 /*************************************/
 
+/* This section is licensed under the Joey Manani Licensing Agreement as specified in*/
+
 /* sections should have internal padding for content */
 section.intro, section.statements, section.objectives, section.training, section.award {
     padding: 5vh;
