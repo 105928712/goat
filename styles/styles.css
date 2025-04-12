@@ -1,7 +1,7 @@
 /* Filename: styles.css */
-/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel */
 /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
-/* Last edited: 7th of April, 2025 */
+/* Last edited: 12th of April, 2025 */
 
 /*************************************/
 /*           GLOBAL STYLES           */
@@ -58,6 +58,733 @@ p {
 
 
 
+/*************************************/
+/*              HEADER               */
+/*************************************/
+
+
+
+
+/* Header background and overlay */
+.site-header {
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* container for logo and nav */
+.header-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* define the logo styles - ensure its not too big */
+.logo img {
+    height: 48px;
+    object-fit: contain;
+    padding: 4px;
+}
+
+/* don't style the nav as a list */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+/* style the links */
+.main-nav a {
+    color: var(--font-light);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+}
+
+/* define a pretty hover animation */
+.main-nav a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--tertiary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+
+/* do the hover animation on hover */
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+
+
+
+
+/*************************************/
+/*              FOOTER               */
+/*************************************/
+
+
+
+
+
+/* Footer style */
+.site-footer {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 40px 20px;
+    font-size: 1em;
+}
+
+/* footer container should be flex */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* define how we want to flex it */
+.footer-container > div {
+    flex: 1 1 250px; /* shorthand flex-grow, flex-shrink, flex-basis */
+}
+
+/* how to style the motto */
+.footer-container h3 {
+    margin-bottom: 10px;
+    color: var(--primary-light);
+    font-size: 1.2em;
+}
+
+/* how we want to style the paragraphs and lists */
+.footer-container p,
+.footer-container li {
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* don't show list bullets on footer nav */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* list items should be spaced */
+.footer-nav ul li {
+    margin-bottom: 8px;
+}
+
+/* style footer links */
+.footer-nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* change color on hover */
+.footer-nav ul li a:hover {
+    color: var(--tertiary);
+}
+
+/* style the contact email section */
+.footer-contact a {
+    color: #eee;
+    text-decoration: underline;
+}
+
+/* stylise the copyright text at the bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* create flex column when  we're on smaller viewports */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container > div {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+/*************************************/
+/*              INDEX                */
+/*************************************/
+
+
+
+
+
+
+/* This section is licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
+
+/* sections should have internal padding for content */
+section.intro, section.statements, section.objectives, section.training, section.award {
+    padding: 5vh;
+}
+
+/* all section h2 headlines should be centered and have a margin */
+section.intro h2, section.statements h2, section.objectives h2, section.training h2, section.award h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-align: center;
+    margin-top: 0;
+}
+
+/* main animation section */
+section.goat {
+    height: calc(100vh - 72px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-light);
+    flex-direction: column;
+}
+
+/* the main headline title */
+section.goat .big-title {
+    margin: 0;
+    font-size: 5rem;
+    color: var(--primary);;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeIn 1s forwards 2s, letterSpacing 0.5s forwards 2.8s;
+}
+
+/* The little phrase under the big title */
+section.goat .hero-tag {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--primary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeIn 1s forwards 4s;
+}
+
+/* the icon that shows */
+section.goat .icon {
+    width: 20%;
+    height: auto;
+    user-select: none;
+    animation: fadeIn 1s forwards 0s, shrink 0.5s forwards 0.8s, x-shift 0.5s forwards 1.6s, fadeOut 0.3s forwards 3.5s;
+    position: absolute;
+}
+
+/* next intro section styles, height of 40vh */
+section.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10rem;
+    height: 40vh;
+}
+
+/* position a hero image */
+section.intro img {
+    min-width: 200px;
+    width: 40%;
+    height: auto;
+    border-radius: 3%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* make the image grow on hover */
+section.intro img:hover {
+    transform: scale(1.05);
+}
+
+/* the text div should have some margin to the image */
+section.intro div {
+    width: 100%;
+    height: auto;
+    margin-right: 10rem;
+}
+
+/* define statements flex container */
+section.statements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: var(--quaternary);
+}
+
+/* three columed grid layout */
+section.statements div.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 5rem;
+}
+
+/* h2 colour to contrast bg */
+section.statements h2 {
+    color: var(--primary-light)
+}
+
+/* paragraph colour to contrast bg */
+section.statements p {
+    color: var(--font-light);
+}
+
+/* objectives container should be flexible and 100vh */
+section.objectives {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* define how we want to style the list of objectives */
+section.objectives ul li {
+    font-size: 1.3rem;
+    background-color: white;
+    border-radius: 4px;
+    padding: 0.8rem;
+    list-style: none;
+    margin: 1.67rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.1s ease-in-out;
+    cursor: default;
+}
+
+/* make them bigger when hover */
+section.objectives ul li:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* training section */
+section.training {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10rem;
+    height: 40vh;
+    background-color: var(--quinary);
+}
+
+/* contrast h2 and p with bg */
+section.training h2 {
+    color: var(--primary-light)
+}
+
+/* contrast h2 and p with bg */
+section.training p {
+    color: var(--font-light)
+}
+
+/* we want the image to be small */
+section.training img {
+    min-width: 250px;
+    width: 40%;
+    height: auto;
+    border-radius: 3%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* make the image grow on hover */
+section.training img:hover {
+    transform: scale(1.05);
+}
+
+/* have some margin to the image */
+section.training div {
+    width: 100%;
+    height: auto;
+    margin-left: 10rem;
+}
+
+/* award small section */
+section.award {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    background-color: var(--primary-light);
+    padding: 0 5rem;
+}
+
+/* italicise the p */
+section.award p {
+    margin: 0px;
+    font-style: italic;
+}
+
+/* don't change the color of the hyperlink */
+section.award a {
+    color: inherit;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+/* and do the pretty underline thingy */
+section.award a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--tertiary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+
+/* make the underline grow on hover */
+section.award a:hover::after,
+section.award a.active::after {
+    width: 100%;
+}
+
+
+/* responsive design for small screens */
+@media (max-width: 1000px) {
+    section.intro p, section.statements p, section.objectives p, section.training p, section.award p {
+        font-size: small;
+    }
+
+    section.intro h2, section.statements h2, section.objectives h2, section.training h2, section.award h2 {
+        font-size: 1.4rem;
+    }
+
+    section.goat .big-title {
+        font-size: 3rem;
+    }
+
+    section.goat .hero-tag {
+        font-size: 1.5rem;
+    }
+
+    section.intro img {
+        width: 80%;
+    }
+
+    section.intro div {
+        width: 100%;
+        margin-right: 5rem;
+    }
+
+    section.statements {
+        height: auto;
+    }
+
+    /* make the grid stack on small screens*/
+    section.statements div.grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    section.objectives ul li {
+        margin: 0.6rem 0;
+        font-size: small;
+    }
+
+    section.training {
+        padding: 2rem;
+        font-size: small;
+    }
+
+    section.training img {
+        width: 80%;
+    }
+
+    section.training div {
+        width: 100%;
+        margin-left: 5%;
+
+    }
+
+    section.award {
+        font-size: small;
+    }
+}
+
+
+
+
+
+
+/*************************************/
+/*            JOBS.HTML              */
+/*************************************/
+
+
+
+
+
+/* Create a grid layout for jobs that auto fits */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    box-sizing: border-box;
+}
+
+/* Job Title Styling */
+.job-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Job Description styling  */
+.job-description {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Salary and report Section */
+.salary-range,
+.report-to {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+/* Key responsibilities list... */
+.job-responsibilities {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* job responsibilities list items */
+.job-responsibilities li {
+    font-size: 1rem;
+}
+
+/* skills List */
+.required-skills, .preferred-skills {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+/* required skills list items */
+.required-skills li, .preferred-skills li {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* section headings */
+section h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--font);
+    margin-top: 20px;
+}
+
+/* don't number the list items */
+.no-number {
+    list-style-type: none;
+}
+
+
+
+
+
+/*************************************/
+/*              APPLY                */
+/*************************************/
+
+
+
+
+
+
+/* make the form fade in and define it as a flex container */
+main.form {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    opacity: 0.001;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* form section */
+.form-section {
+    max-width: 700px;
+    width: 100%;
+}
+
+/* labels should be bold */
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* legends should be bold too */
+form legend { font-weight: 600; }
+
+/* stylise the form inputs */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid var(--font-light);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Rid ugly border around fieldsets */
+fieldset {
+    border: none; 
+    padding: 0;
+    margin-top: 15px;
+}
+
+/* make the fieldset label bold and add some margin */
+fieldset label {
+    margin-right: 15px;
+    font-weight: normal;
+}
+
+/* ensure the fieldset inputs are inline and have some margin */
+fieldset input {
+    width: auto;
+    margin-right: 6px;
+}
+
+/* only allow vertical resizing of textareas */
+form textarea {
+    resize: vertical;
+}
+
+/* make the form checkboxes have a margin to their label */
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* define the form button */
+form button {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 12px 25px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* hover animation to zoom in a little bit */
+form button:hover {
+    transform: scale(1.03);
+    background-color: var(--secondary);
+}
+
+/* define an outline upon input focus */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* less padding on smaller viewports */
+@media (max-width: 600px) {
+    .form-section {
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
+/*************************************/
+/*              ABOUT                */
+/*************************************/
+
+
+
+
+
+
+/* styles for the definition list */
+dl, dt { 
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+/* set the definition list dt to be bold */
+dt {
+    font-weight: bolder;
+}
+
+/* make the tables and photos sections float next to each other */
+#tables, #photos {
+    width: 43%;
+    text-align: center;
+}
+
+#tables {
+    float: left;
+}
+
+table {
+    margin: auto;
+}
+
+#photos {
+    float: right;
+}
+
+/* ensure the footer doesn't float with the tables and photos */
+footer {clear:both;}
+
+
+
 
 
 
@@ -65,6 +792,10 @@ p {
 /*************************************/
 /*            ANIMATIONS             */
 /*************************************/
+
+
+
+
 
 /* keyframes for fadein effect */
 @keyframes fadeIn {
