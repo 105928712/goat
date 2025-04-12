@@ -10,7 +10,7 @@
     background: linear-gradient(145deg, var(--primary), var(--secondary));
     padding: 1rem 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -80,23 +80,4 @@
 .main-nav a:hover::after,
 .main-nav a.active::after {
     width: 100%;
-}
-
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 1.4rem;
-    }
 }
