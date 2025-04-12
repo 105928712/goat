@@ -4,6 +4,10 @@
 /* Last edited: 12th of April, 2025 */
 
 
+/*************************************/
+/*            JOBS.HTML              */
+/*************************************/
+
 /* Create a grid layout for jobs that auto fits */
 .jobs-grid {
     display: grid;
@@ -42,6 +46,7 @@
     margin-bottom: 15px;
 }
 
+/* job responsibilities list items */
 .job-responsibilities li {
     font-size: 1rem;
 }
@@ -52,6 +57,7 @@
     margin-left: 20px;
 }
 
+/* required skills list items */
 .required-skills li, .preferred-skills li {
     font-size: 1rem;
     margin-bottom: 8px;
@@ -65,6 +71,7 @@ section h3 {
     margin-top: 20px;
 }
 
+/* don't number the list items */
 .no-number {
     list-style-type: none;
 }

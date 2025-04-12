@@ -4,10 +4,24 @@
 /* Last edited: 12th of April, 2025 */
 /* Contains all relevant CSS for index.html */
 
+/*************************************/
+/*              INDEX                */
+/*************************************/
+
+/* sections should have internal padding for content */
 section.intro, section.statements, section.objectives, section.training, section.award {
     padding: 5vh;
 }
 
+/* all section h2 headlines should be centered and have a margin */
+section.intro h2, section.statements h2, section.objectives h2, section.training h2, section.award h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-align: center;
+    margin-top: 0;
+}
+
+/* main animation section */
 section.goat {
     height: calc(100vh - 72px);
     width: 100vw;
@@ -18,6 +32,7 @@ section.goat {
     flex-direction: column;
 }
 
+/* the main headline title */
 section.goat .big-title {
     margin: 0;
     font-size: 5rem;
@@ -29,6 +44,7 @@ section.goat .big-title {
     animation: fadeIn 1s forwards 2s, letterSpacing 0.5s forwards 2.8s;
 }
 
+/* The little phrase under the big title */
 section.goat .hero-tag {
     margin: 0;
     font-size: 2rem;
@@ -40,6 +56,7 @@ section.goat .hero-tag {
     animation: fadeIn 1s forwards 4s;
 }
 
+/* the icon that shows */
 section.goat .icon {
     width: 20%;
     height: auto;
@@ -48,6 +65,7 @@ section.goat .icon {
     position: absolute;
 }
 
+/* next intro section styles, height of 40vh */
 section.intro {
     display: flex;
     justify-content: center;
@@ -57,6 +75,7 @@ section.intro {
     height: 40vh;
 }
 
+/* position a hero image */
 section.intro img {
     min-width: 200px;
     width: 40%;
@@ -65,23 +84,19 @@ section.intro img {
     transition: transform 0.3s ease-in-out;
 }
 
+/* make the image grow on hover */
 section.intro img:hover {
     transform: scale(1.05);
 }
 
+/* the text div should have some margin to the image */
 section.intro div {
     width: 100%;
     height: auto;
     margin-right: 10rem;
 }
 
-section h2 {
-    font-size: 2.5rem;
-    color: var(--primary);
-    text-align: center;
-    margin-top: 0;
-}
-
+/* define statements flex container */
 section.statements {
     display: flex;
     justify-content: center;
@@ -90,22 +105,25 @@ section.statements {
     background-color: var(--quaternary);
 }
 
+/* three columed grid layout */
 section.statements div.grid {
-    /* three columed grid layout */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 5rem;
 }
 
+/* h2 colour to contrast bg */
 section.statements h2 {
     color: var(--primary-light)
 }
 
+/* paragraph colour to contrast bg */
 section.statements p {
     color: var(--font-light);
 }
 
+/* objectives container should be flexible and 100vh */
 section.objectives {
     display: flex;
     height: 100vh;
@@ -114,6 +132,7 @@ section.objectives {
     flex-direction: column;
 }
 
+/* define how we want to style the list of objectives */
 section.objectives ul li {
     font-size: 1.3rem;
     background-color: white;
@@ -126,11 +145,13 @@ section.objectives ul li {
     cursor: default;
 }
 
+/* make them bigger when hover */
 section.objectives ul li:hover {
     background-color: #f0f0f0;
     transform: scale(1.05);
 }
 
+/* training section */
 section.training {
     display: flex;
     justify-content: center;
@@ -141,14 +162,17 @@ section.training {
     background-color: var(--quinary);
 }
 
+/* contrast h2 and p with bg */
 section.training h2 {
     color: var(--primary-light)
 }
 
+/* contrast h2 and p with bg */
 section.training p {
     color: var(--font-light)
 }
 
+/* we want the image to be small */
 section.training img {
     min-width: 250px;
     width: 40%;
@@ -157,16 +181,19 @@ section.training img {
     transition: transform 0.3s ease-in-out;
 }
 
+/* make the image grow on hover */
 section.training img:hover {
     transform: scale(1.05);
 }
 
+/* have some margin to the image */
 section.training div {
     width: 100%;
     height: auto;
     margin-left: 10rem;
 }
 
+/* award small section */
 section.award {
     display: flex;
     justify-content: center;
@@ -176,15 +203,13 @@ section.award {
     padding: 0 5rem;
 }
 
+/* italicise the p */
 section.award p {
     margin: 0px;
     font-style: italic;
 }
 
-section.award a {
-    color: inherit;
-}
-
+/* don't change the color of the hyperlink */
 section.award a {
     color: inherit;
     transition: color 0.3s ease;
@@ -192,6 +217,7 @@ section.award a {
     position: relative;
 }
 
+/* and do the pretty underline thingy */
 section.award a::after {
     content: '';
     display: block;
@@ -204,6 +230,7 @@ section.award a::after {
     left: 0;
 }
 
+/* make the underline grow on hover */
 section.award a:hover::after,
 section.award a.active::after {
     width: 100%;
@@ -212,11 +239,11 @@ section.award a.active::after {
 
 /* responsive design for small screens */
 @media (max-width: 1000px) {
-    section p {
+    section.intro p, section.statements p, section.objectives p, section.training p, section.award p {
         font-size: small;
     }
 
-    section h2 {
+    section.intro h2, section.statements h2, section.objectives h2, section.training h2, section.award h2 {
         font-size: 1.4rem;
     }
 
@@ -241,6 +268,7 @@ section.award a.active::after {
         height: auto;
     }
 
+    /* make the grid stack on small screens*/
     section.statements div.grid {
         grid-template-columns: repeat(1, 1fr);
     }

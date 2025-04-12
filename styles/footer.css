@@ -4,8 +4,11 @@
 /* Last edited: 7th of April, 2025 */
 /* Contains all relevant CSS for the footer */
 
+/*************************************/
+/*              FOOTER               */
+/*************************************/
 
-/* Footer Styles */
+/* Footer style */
 .site-footer {
     background-color: var(--primary);
     color: #fff;
@@ -13,6 +16,7 @@
     font-size: 1em;
 }
 
+/* footer container should be flex */
 .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -22,47 +26,56 @@
     margin: 0 auto;
 }
 
+/* define how we want to flex it */
 .footer-container > div {
-    flex: 1 1 250px;
+    flex: 1 1 250px; /* shorthand flex-grow, flex-shrink, flex-basis */
 }
 
+/* how to style the motto */
 .footer-container h3 {
     margin-bottom: 10px;
     color: var(--primary-light);
     font-size: 1.2em;
 }
 
+/* how we want to style the paragraphs and lists */
 .footer-container p,
 .footer-container li {
     line-height: 1.6;
     color: #ddd;
 }
 
+/* don't show list bullets on footer nav */
 .footer-nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* list items should be spaced */
 .footer-nav ul li {
     margin-bottom: 8px;
 }
 
+/* style footer links */
 .footer-nav ul li a {
     color: #ccc;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
+/* change color on hover */
 .footer-nav ul li a:hover {
     color: var(--tertiary);
 }
 
+/* style the contact email section */
 .footer-contact a {
     color: #eee;
     text-decoration: underline;
 }
 
+/* stylise the copyright text at the bottom */
 .footer-bottom {
     text-align: center;
     margin-top: 30px;
@@ -71,8 +84,9 @@
 }
 
 
-/* Responsive Styles */
+/* Responsive styles */
 @media (max-width: 768px) {
+    /* create flex column when  we're on smaller viewports */
     .footer-container {
         flex-direction: column;
         align-items: center;

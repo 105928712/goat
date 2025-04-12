@@ -3,6 +3,10 @@
 /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
 /* Last edited: 7th of April, 2025 */
 
+/*************************************/
+/*           GLOBAL STYLES           */
+/*************************************/
+
 /* Global Styles and Colours */
 :root {
     --light-bg: #f7f7ff;
@@ -26,25 +30,41 @@ body {
     color: var(--font);
 }
 
-/* Typography */
+/* set h1 size and colour */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 15px;
     color: var(--primary);
 }
 
+/* set p sizes */
 p {
     font-size: 1em;
     margin-bottom: 15px;
 }
 
+/* define a base-style for panel elements which is used on all pages */
 .panel {
     background-color: #ffffff;
     padding: 20px;
     margin: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0.001;
+    animation: fadeIn 1s ease-out forwards;
 }
+
+
+
+
+
+
+
+
+
+/*************************************/
+/*            ANIMATIONS             */
+/*************************************/
 
 /* keyframes for fadein effect */
 @keyframes fadeIn {
@@ -66,7 +86,7 @@ p {
     }
 }
 
-/* Define shrink and move left animation */
+/* Define shrink animation */
 @keyframes shrink {
     0% {
         transform: scale(1);
@@ -76,6 +96,7 @@ p {
     }
 }
 
+/* move left animation */
 @keyframes x-shift {
     0% {
         transform: scale(0.5) translateX(0);
@@ -85,6 +106,7 @@ p {
     }
 }
 
+/* fade out animation */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -94,6 +116,7 @@ p {
     }
 }
 
+/* fade in hidden animation (cannot be faded so its more a cut) */
 @keyframes fadeInHidden {
     0% {
         display: none;
