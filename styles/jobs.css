@@ -1,7 +1,15 @@
 /* Filename: jobs.css */
-/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel, Daniel Cornehls */
+/* (c) 2025 Joey Manani, Sienna Virtuoso, Nima Adel */
 /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
-/* Last edited: 11th of April, 2025 */
+/* Last edited: 12th of April, 2025 */
+
+
+/* Create a grid layout for jobs that auto fits */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    box-sizing: border-box;
+}
 
 /* Job Title Styling */
 .job-title {
@@ -59,11 +67,4 @@ section h3 {
 
 .no-number {
     list-style-type: none;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .job-title {
-        font-size: 1.8rem;
-    }
 }
