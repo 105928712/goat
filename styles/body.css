@@ -1,3 +1,7 @@
+section.intro, section.statements, section.objectives, section.training, section.award {
+    padding: 5vh;
+}
+
 section.goat {
     height: calc(100vh - 72px);
     width: 100vw;
@@ -48,6 +52,7 @@ section.intro {
 }
 
 section.intro img {
+    min-width: 200px;
     width: 40%;
     height: auto;
     border-radius: 3%;
@@ -104,12 +109,12 @@ section.objectives {
 }
 
 section.objectives ul li {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color: white;
     border-radius: 4px;
-    padding: 1rem;
+    padding: 0.8rem;
     list-style: none;
-    margin: 2rem 0;
+    margin: 1.67rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.1s ease-in-out;
     cursor: default;
@@ -139,6 +144,7 @@ section.training p {
 }
 
 section.training img {
+    min-width: 250px;
     width: 40%;
     height: auto;
     border-radius: 3%;
@@ -161,6 +167,7 @@ section.award {
     align-items: center;
     height: 15vh;
     background-color: var(--primary-light);
+    padding: 0 5rem;
 }
 
 section.award p {
@@ -194,4 +201,65 @@ section.award a::after {
 section.award a:hover::after,
 section.award a.active::after {
     width: 100%;
+}
+
+
+/* responsive design for small screens */
+@media (max-width: 1000px) {
+    section p {
+        font-size: small;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    section.goat .big-title {
+        font-size: 3rem;
+    }
+
+    section.goat .hero-tag {
+        font-size: 1.5rem;
+    }
+
+    section.intro img {
+        width: 80%;
+    }
+
+    section.intro div {
+        width: 100%;
+        margin-right: 5rem;
+    }
+
+    section.statements {
+        height: auto;
+    }
+
+    section.statements div.grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    section.objectives ul li {
+        margin: 0.6rem 0;
+        font-size: small;
+    }
+
+    section.training {
+        padding: 2rem;
+        font-size: small;
+    }
+
+    section.training img {
+        width: 80%;
+    }
+
+    section.training div {
+        width: 100%;
+        margin-left: 5%;
+
+    }
+
+    section.award {
+        font-size: small;
+    }
 }
