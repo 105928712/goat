@@ -42,7 +42,7 @@ section.goat .big-title {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    opacity: 0;
+    opacity: 0.001;
     animation: fadeIn 1s forwards 2s, letterSpacing 0.5s forwards 2.8s;
 }
 
@@ -54,7 +54,7 @@ section.goat .hero-tag {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    opacity: 0;
+    opacity: 0.001;
     animation: fadeIn 1s forwards 4s;
 }
 

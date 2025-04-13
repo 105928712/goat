@@ -290,7 +290,7 @@ section.goat .big-title {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    opacity: 0;
+    opacity: 0.001;
     animation: fadeIn 1s forwards 2s, letterSpacing 0.5s forwards 2.8s;
 }
 
@@ -302,7 +302,7 @@ section.goat .hero-tag {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    opacity: 0;
+    opacity: 0.001;
     animation: fadeIn 1s forwards 4s;
 }
 
@@ -807,7 +807,7 @@ footer {clear:both;}
 /* keyframes for fadein effect */
 @keyframes fadeIn {
     0% {
-        opacity: 0;
+        opacity: 0.001;
     }
     100% {
         opacity: 1;
@@ -850,7 +850,7 @@ footer {clear:both;}
         opacity: 1;
     }
     100% {
-        opacity: 0;
+        opacity: 0.001;
     }
 }
 
