@@ -3,6 +3,8 @@
 /* (c) Aspects of this document are licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
 /* Last edited: 12th of April, 2025 */
 /* This CSS contains all the styles for the entire website sorted into sections where each one refers to a HTML page */
+/* Passes W3C CSS Validation Service */
+
 
 /*************************************/
 /*           GLOBAL STYLES           */
@@ -448,6 +450,7 @@ section.training div {
 section.award {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 15vh;
     background-color: var(--primary-light);
