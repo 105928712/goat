@@ -566,6 +566,8 @@ section.award a.active::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     box-sizing: border-box;
+    float: left;
+    width: 60%
 }
 
 /* Job Title Styling */
@@ -629,6 +631,12 @@ section h3 {
     list-style-type: none;
 }
 
+/* as per the requirements we need an aside with 25% width and border */
+aside {
+    float: right;
+    width: 25%;
+    border: 2px solid var(--tertiary)
+}
 
 
 
