@@ -769,22 +769,11 @@ dt {
     font-weight: bolder;
 }
 
-/* make the tables and photos sections float next to each other */
-#tables, #photos {
-    width: 43%;
+/* migrate from floats to grid because i (joey) added more sections */
+#about-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two columns */
     text-align: center;
-}
-
-#tables {
-    float: left;
-}
-
-table {
-    margin: auto;
-}
-
-#photos {
-    float: right;
 }
 
 /* ensure the footer doesn't float with the tables and photos */
