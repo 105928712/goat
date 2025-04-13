@@ -784,11 +784,36 @@ dt {
     font-weight: bolder;
 }
 
+/* center the tables within sections (requirement) */
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* right align student IDs as per requirements...??!! */
+.right {
+    text-align: right;
+}
+
+/* add a background color to the cells (requirement) */
+th, td {
+    background-color: #ededed;
+    padding: 0.2em;
+}
+
+/* effect on hover (requirement) */
+th:hover, td:hover {
+    cursor: default;
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out;
+}
+
 /* migrate from floats to grid because i (joey) added more sections */
 #about-sections {
     display: grid;
     grid-template-columns: 1fr 1fr; /* two columns */
     text-align: center;
+    justify-content: center;
 }
 
 /* ensure the footer doesn't float with the tables and photos */
