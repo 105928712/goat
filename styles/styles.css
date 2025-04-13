@@ -569,6 +569,12 @@ section.award a.active::after {
     box-sizing: border-box;
 }
 
+/* "<h1> elements should have their font variant, size and family etc. set using the short-hand font property. " */
+.jobs-page-title {
+    font: bold 2.5rem 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary);
+}
+
 /* Job Title Styling */
 .job-title {
     font-size: 2rem;
