@@ -822,9 +822,11 @@ th:hover, td:hover {
 /* ensure the footer doesn't float with the tables and photos */
 footer {clear:both;}
 
-
-
-
+/* add border to photo - the section is floated right, should be okay and meet reqs */
+#photos figure {
+    border: 2px solid var(--tertiary);
+    border-radius: 5px;
+}
 
 
 
