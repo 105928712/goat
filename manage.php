@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 
     if ($manager) {
         $now = new DateTime();
-        $lockout = new DateTime($manager['lockout_time'])->modify('+15 minutes');
+        $lockout = new DateTime($manager['lockout_time']);
+        $lockout->modify('+15 minutes'); // 15 minutes lockout period
 
 
         if ($manager['failed_attempts'] >= 3 && $now < $lockout) {
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             $conn->query("UPDATE managers SET failed_attempts = 0, lockout_time = NULL WHERE username = '$username'");
 
         } else {
-            // increment failed attempts and lockout time
+            // increment failed attempts and lockout
             $conn->query("UPDATE managers SET failed_attempts = failed_attempts + 1, lockout_time = NOW() WHERE username = '$username'");
             die("Invalid credentials.");
         }
