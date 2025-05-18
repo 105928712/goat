@@ -19,8 +19,14 @@
     <main class="form">
         <section class="panel form-section">
             <h1>Job Application</h1>
-            <p>Please fill out the form below to apply for a job with us. Fields marked with an asterisk (*) are required.</p>
 
+            <?php
+            if (isset($_GET['error'])) {
+                echo '<p class="fail">' . htmlspecialchars($_GET['error']) . '</p>';
+            } else {
+                echo '<p>Please fill out the form below to apply for a job with us. Fields marked with an asterisk (*) are required.</p>';
+            }
+            ?>
 
             <!-- Create an application form to the swinburne test server -->
             <form action="process_eoi.php" method="post" novalidate>
