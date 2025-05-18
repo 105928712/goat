@@ -32,8 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             die("Too many failed login attempts. Please try again later.");
         }
 
-        if (password_verify($password, $manager['password'])) { // hashed password check
-            $_SESSION['manager'] = $manager['username'];
+        //if (password_verify($password, $manager['password'])) { // hashed password check
+        if ($password === $manager['password']) { // plain text password check
+            $_SESSION['manager'] = $username;
             $conn->query("UPDATE managers SET failed_attempts = 0, lockout_time = NULL WHERE username = '$username'");
 
         } else {
@@ -71,47 +72,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 
     // Check login
     if (!isset($_SESSION['manager'])) {
-        echo '<form method="POST" action="manage.php">
-            <h2>Manager Login</h2>
+        echo '
+            <main class="form">
+            <section class="panel form-section">
+            <form method="POST" action="manage.php">
+            <h1>Manager Login</h1>
             <label>Username: <input type="text" name="username" required></label><br>
             <label>Password: <input type="password" name="password" required></label><br>
             <button type="submit" name="login">Login</button>
-        </form>'; 
+            </form>
+            </section>
+            </main>'; 
     } else { ?>
+        <main class="form">
+            <section class="panel form-section">
 
-        <!-- Manager Control Panel -->
-        <h2>Welcome, <?php $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
+                <!-- Manager Control Panel -->
+                <h2>Welcome, <?php $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
 
-        <form method="GET" action="manage.php">
-            <h3>Manage EOIs</h3>
-            <label><input type="radio" name="action" value="list_all" required> List all EOIs</label><br>
-
-
-            <label><input type="radio" name="action" value="list_job"> List EOIs by Job Reference</label>
-            <input type="text" name="jobRef"><br>
+                <form method="GET" action="manage.php">
+                    <h3>Manage EOIs</h3>
+                    <label><input type="radio" name="action" value="list_all" required> List all EOIs</label><br>
 
 
-            <label><input type="radio" name="action" value="list_name"> List EOIs by Applicant Name</label>
-            <input type="text" name="firstName" placeholder="First name">
-            <input type="text" name="lastName" placeholder="Last name"><br>
+                    <label><input type="radio" name="action" value="list_job"> List EOIs by Job Reference</label>
+                    <input type="text" name="jobRef"><br>
 
 
-            <label><input type="radio" name="action" value="delete_job"> Delete EOIs by Job Reference</label>
-            <input type="text" name="deleteJobRef"><br>
+                    <label><input type="radio" name="action" value="list_name"> List EOIs by Applicant Name</label>
+                    <input type="text" name="firstName" placeholder="First name">
+                    <input type="text" name="lastName" placeholder="Last name"><br>
 
 
-            <label><input type="radio" name="action" value="update_status"> Change Status of EOI</label>
-            EOI Number: <input type="number" name="eoiNumber">
-            Status: 
-            <select name="status">
-                <option value="New">New</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Finalised">Finalised</option>
-            </select><br>
+                    <label><input type="radio" name="action" value="delete_job"> Delete EOIs by Job Reference</label>
+                    <input type="text" name="deleteJobRef"><br>
 
-            
-            <button type="submit">Submit</button>
-        </form>
+
+                    <label><input type="radio" name="action" value="update_status"> Change Status of EOI</label>
+                    EOI Number: <input type="number" name="eoiNumber">
+                    Status: 
+                    <select name="status">
+                        <option value="New">New</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Finalised">Finalised</option>
+                    </select><br>
+
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
 
     <?php } ?>
 
