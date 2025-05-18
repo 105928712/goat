@@ -45,14 +45,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         die("Invalid credentials.");
     }
 }
-
-// Check login
-if (!isset($_SESSION['manager'])) {
-echo '<form method="POST" action="manage.php">
-    <h2>Manager Login</h2>
-    <label>Username: <input type="text" name="username" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br>
-    <button type="submit" name="login">Login</button>
-</form>';}
-exit()
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="G.O.A.T Team - Joey Manani">
+    <meta name="description" content="Management Portal">
+    <meta name="keywords" content="GOAT, melbourne, IT, software, development">
+    <title>Management | GOAT Solutions</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <?php include 'includes/header.inc'; ?>
+
+    <?php
+    // Check login
+    if (!isset($_SESSION['manager'])) {
+        echo '<form method="POST" action="manage.php">
+            <h2>Manager Login</h2>
+            <label>Username: <input type="text" name="username" required></label><br>
+            <label>Password: <input type="password" name="password" required></label><br>
+            <button type="submit" name="login">Login</button>
+        </form>'; }
+    ?>
+
+
+
+    <?php include 'includes/footer.inc'; ?>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
