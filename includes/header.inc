@@ -9,6 +9,7 @@
                 <li><a href="jobs.php" class="<?= basename($_SERVER['PHP_SELF']) == 'jobs.php' ? 'active' : '' ?>">Jobs</a></li>
                 <li><a href="apply.php" class="<?= basename($_SERVER['PHP_SELF']) == 'apply.php' ? 'active' : '' ?>">Apply</a></li>
                 <li><a href="about.php" class="<?= basename($_SERVER['PHP_SELF']) == 'about.php' ? 'active' : '' ?>">About</a></li>
+                <li><a href="manage.php" class="<?= basename($_SERVER['PHP_SELF']) == 'manage.php' ? 'active' : '' ?>">Manager Login</a></li>
             </ul>
         </nav>
     </div>
