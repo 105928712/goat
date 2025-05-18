@@ -116,6 +116,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     <?php } ?>
 
 
+    <?php
+        // get the action from the form submission
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action'])) {
+            $action = $_GET['action'];
+
+            switch ($action) {
+                case 'list_all':
+                    $result = $conn->query("SELECT * FROM eoi");
+                    break;
+
+                case 'list_job':
+                    $jobRef = $_GET['jobRef'];
+                    $stmt = $conn->prepare("SELECT * FROM eoi WHERE reference = ?");
+                    $stmt->bind_param("s", $jobRef);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    break;
+
+
+                case 'list_name':
+                    $first = $_GET['firstName'] ?? '';
+                    $last = $_GET['lastName'] ?? '';
+                    $nameQuery = trim($first . ' ' . $last); // allow empty first or last name
+                    $stmt = $conn->prepare("SELECT * FROM eoi WHERE fullname LIKE ?");
+                    $stmt->bind_param("s", $nameQuery%);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    break;
+
+                case 'delete_job':
+                    $jobRef = $_GET['deleteJobRef'];
+                    $stmt = $conn->prepare("DELETE FROM eoi WHERE reference = ?");
+                    $stmt->bind_param("s", $jobRef);
+                    $stmt->execute();
+                    echo "<p>EOIs deleted for job reference $jobRef.</p>";
+                    return;
+
+                case 'update_status':
+                    $eoiNum = $_GET['eoiNumber'];
+                    $status = $_GET['status'];
+                    $stmt = $conn->prepare("UPDATE eoi SET status = ? WHERE EOInumber = ?");
+                    $stmt->bind_param("si", $status, $eoiNum);
+                    $stmt->execute();
+                    echo "<p>Status updated for EOI $eoiNum to $status</p>";
+                    return;
+
+                default:
+                    echo "<p>Invalid action.</p>";
+                    return;
+            }
+        }
+
+        // display results as table...
+            ?>
+
+
+
 
 
     <?php include 'includes/footer.inc'; ?>
