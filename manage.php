@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             </main>'; 
     } else { ?>
         <main class="form">
-            <section class="panel form-section">
+            <section class="panel form-section manage-section">
 
                 <!-- Manager Control Panel -->
                 <h2>Welcome, <?php echo $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
@@ -109,13 +109,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                     
                     <button type="submit">Submit</button>
                 </form>
-            </section>
-        </main>
-
-    <?php } ?>
 
 
-    <?php
+                <?php
         // get the action from the form submission
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['action'])) {
             $action = $_GET['action'];
@@ -137,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                 case 'list_name':
                     $first = $_GET['firstName'] ?? '';
                     $last = $_GET['lastName'] ?? '';
-                    $nameQuery = trim($first . ' ' . $last); // allow empty first or last name
+                    $nameQuery = "%" . trim($first . ' ' . $last) . "%"; // allow empty first or last name (% wildcard for partial match on either side to search either first or last)
                     $stmt = $conn->prepare("SELECT * FROM eoi WHERE fullname LIKE ?");
                     $stmt->bind_param("s", $nameQuery);
                     $stmt->execute();
@@ -168,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 
             // display results as table
             if (isset($result) && $result->num_rows > 0) {
-                echo "<table border='1'><tr><th>EOI Number</th><th>Reference</th><th>Name</th><th>Address</th><th>Email</th><th>Phone</th><th>Skills</th><th>Other</th><th>Status</th></tr>";
+                echo "<table><tr><th>EOI Number</th><th>Reference</th><th>Name</th><th>Address</th><th>Email</th><th>Phone</th><th>Skills</th><th>Other</th><th>Status</th></tr>";
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
                         <td>{$row['EOInumber']}</td>
@@ -188,6 +184,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             }
         }
         ?>
+
+
+
+            </section>
+        </main>
+
+    <?php } ?>
+
+
 
     <?php include 'includes/footer.inc'; ?>
     
