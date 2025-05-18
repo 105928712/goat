@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <main>
         <!-- Intro animation section -->
@@ -119,6 +119,6 @@
 
 
     <!-- Footer -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>
