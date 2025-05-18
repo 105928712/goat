@@ -264,7 +264,7 @@
                 we will get you up to scratch with how we want to work with you. 
                 Experience high-pay as well as a supportive and friendly workplace environment. 
                 We're GOAT. Tomorrow's Innovation, Today</p>
-            <a href="apply.html">Apply Now</a>
+            <a href="apply.php">Apply Now</a>
         </aside>
     </main>
 
