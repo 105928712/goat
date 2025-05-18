@@ -45,4 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         die("Invalid credentials.");
     }
 }
+
+// Check login
+if (!isset($_SESSION['manager'])) {
+echo '<form method="POST" action="manage.php">
+    <h2>Manager Login</h2>
+    <label>Username: <input type="text" name="username" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit" name="login">Login</button>
+</form>';}
+exit()
 ?>
