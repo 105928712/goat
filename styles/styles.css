@@ -835,6 +835,15 @@ footer {clear:both;}
 /*               MANAGE              */
 /*************************************/
 
+.manage-section {
+    max-width: 1300px;
+}
+
+.manage-section > table {
+    width: 100%;
+    margin: 20px 0;
+}
+
 fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     padding: 0px 5px;
     width: auto !important;
