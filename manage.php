@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                     $last = $_GET['lastName'] ?? '';
                     $nameQuery = trim($first . ' ' . $last); // allow empty first or last name
                     $stmt = $conn->prepare("SELECT * FROM eoi WHERE fullname LIKE ?");
-                    $stmt->bind_param("s", $nameQuery%);
+                    $stmt->bind_param("s", $nameQuery);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     break;
@@ -166,27 +166,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
                     echo "<p>Invalid action.</p>";
                     return;
             }
-        }
 
-        // display results as table
-        if (isset($result) && $result->num_rows > 0) {
-            echo "<table border='1'><tr><th>EOI Number</th><th>Reference</th><th>Name</th><th>Address</th><th>Email</th><th>Phone</th><th>Skills</th><th>Other</th><th>Status</th></tr>";
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                    <td>{$row['EOInumber']}</td>
-                    <td>{$row['reference']}</td>
-                    <td>{$row['fullname']}</td>
-                    <td>{$row['address']}</td>
-                    <td>{$row['email']}</td>
-                    <td>{$row['phone']}</td>
-                    <td>{$row['skills']}</td>
-                    <td>{$row['other']}</td>
-                    <td>{$row['status']}</td>
-                </tr>";
+            // display results as table
+            if (isset($result) && $result->num_rows > 0) {
+                echo "<table border='1'><tr><th>EOI Number</th><th>Reference</th><th>Name</th><th>Address</th><th>Email</th><th>Phone</th><th>Skills</th><th>Other</th><th>Status</th></tr>";
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                        <td>{$row['EOInumber']}</td>
+                        <td>{$row['reference']}</td>
+                        <td>{$row['fullname']}</td>
+                        <td>{$row['address']}</td>
+                        <td>{$row['email']}</td>
+                        <td>{$row['phone']}</td>
+                        <td>{$row['skills']}</td>
+                        <td>{$row['other']}</td>
+                        <td>{$row['status']}</td>
+                    </tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "<p>No results found.</p>";
             }
-            echo "</table>";
-        } else {
-            echo "<p>No results found.</p>";
         }
         ?>
 
