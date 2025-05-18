@@ -168,12 +168,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             }
         }
 
-        // display results as table...
-            ?>
-
-
-
-
+        // display results as table
+        if (isset($result) && $result->num_rows > 0) {
+            echo "<table border='1'><tr><th>EOI Number</th><th>Reference</th><th>Name</th><th>Address</th><th>Email</th><th>Phone</th><th>Skills</th><th>Other</th><th>Status</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                    <td>{$row['EOInumber']}</td>
+                    <td>{$row['reference']}</td>
+                    <td>{$row['fullname']}</td>
+                    <td>{$row['address']}</td>
+                    <td>{$row['email']}</td>
+                    <td>{$row['phone']}</td>
+                    <td>{$row['skills']}</td>
+                    <td>{$row['other']}</td>
+                    <td>{$row['status']}</td>
+                </tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<p>No results found.</p>";
+        }
+        ?>
 
     <?php include 'includes/footer.inc'; ?>
     
