@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             <section class="panel form-section">
 
                 <!-- Manager Control Panel -->
-                <h2>Welcome, <?php $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
+                <h2>Welcome, <?php echo $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
 
                 <form method="GET" action="manage.php">
                     <h3>Manage EOIs</h3>
