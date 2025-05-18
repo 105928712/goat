@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
 
     <!-- Main Content -->
@@ -115,6 +115,6 @@
 
 
     <!-- Footer -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>

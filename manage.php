@@ -25,7 +25,7 @@ $conn->query("CREATE TABLE IF NOT EXISTS managers (
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <?php
     // Handle signup
@@ -243,7 +243,7 @@ $conn->query("CREATE TABLE IF NOT EXISTS managers (
 
 
 
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
     
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <main>
         <!-- Panel which holds the content for information about our team -->
@@ -126,6 +126,6 @@
 
 
     <!-- Footer -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>

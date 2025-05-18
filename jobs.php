@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include 'includes/header.inc'; ?>
+    <?php include 'header.inc'; ?>
 
     <main>
         <!-- Create a page title panel -->
@@ -269,6 +269,6 @@
     </main>
 
     <!-- Footer -->
-    <?php include 'includes/footer.inc'; ?>
+    <?php include 'footer.inc'; ?>
 </body>
 </html>
