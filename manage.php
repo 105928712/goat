@@ -11,41 +11,6 @@ $conn->query("CREATE TABLE IF NOT EXISTS managers (
     lockout_time DATETIME DEFAULT NULL
 )");
 
-// Handle login
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-
-    $stmt = $conn->prepare("SELECT * FROM managers WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $manager = $result->fetch_assoc();
-
-    if ($manager) {
-        $now = new DateTime();
-        $lockout = new DateTime($manager['lockout_time']);
-        $lockout->modify('+15 minutes'); // 15 minutes lockout period
-
-
-        if ($manager['failed_attempts'] >= 3 && $now < $lockout) {
-            die("Too many failed login attempts. Please try again later.");
-        }
-
-        //if (password_verify($password, $manager['password'])) { // hashed password check
-        if ($password === $manager['password']) { // plain text password check
-            $_SESSION['manager'] = $username;
-            $conn->query("UPDATE managers SET failed_attempts = 0, lockout_time = NULL WHERE username = '$username'");
-
-        } else {
-            // increment failed attempts and lockout
-            $conn->query("UPDATE managers SET failed_attempts = failed_attempts + 1, lockout_time = NOW() WHERE username = '$username'");
-            die("Invalid credentials.");
-        }
-    } else {
-        die("Invalid credentials.");
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +28,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     <?php include 'includes/header.inc'; ?>
 
     <?php
+    // Handle signup
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup'])) {
+        $newUser = trim($_POST['new_username']);
+        $newPass = trim($_POST['new_password']);
+        $confirmPass = trim($_POST['confirm_password']);
+
+        if ($newPass !== $confirmPass) {
+            die("<h1>Passwords do not match.</h1>");
+        }
+
+        // Check if user already exists
+        $checkStmt = $conn->prepare("SELECT * FROM managers WHERE username = ?");
+        $checkStmt->bind_param("s", $newUser);
+        $checkStmt->execute();
+        $checkResult = $checkStmt->get_result();
+
+        if ($checkResult->num_rows > 0) {
+            die("<h1>Username already exists.</h1>");
+        }
+
+        // hash the password
+        $hashedPass = password_hash($newPass, PASSWORD_DEFAULT);
+
+        $insertStmt = $conn->prepare("INSERT INTO managers (username, password) VALUES (?, ?)");
+        $insertStmt->bind_param("ss", $newUser, $hashedPass);
+        if ($insertStmt->execute()) {
+            $_SESSION['manager'] = $newUser; // auto-login after signup
+            $conn->query("UPDATE managers SET failed_attempts = 0, lockout_time = NULL WHERE username = '$newUser'");
+            header("Location: manage.php");
+        } else {
+            die("<h1>Signup failed. Try again.</h1>");
+        }
+    }
+
+    // Handle login
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+
+        $stmt = $conn->prepare("SELECT * FROM managers WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $manager = $result->fetch_assoc();
+
+        if ($manager) {
+            $now = new DateTime();
+            $lockout = new DateTime($manager['lockout_time']);
+            $lockout->modify('+15 minutes'); // 15 minutes lockout period
+
+
+            if ($manager['failed_attempts'] >= 3 && $now < $lockout) {
+                die("<h1>Too many failed login attempts. Please try again later.</h1>");
+            }
+
+            if (password_verify($password, $manager['password'])) { // hashed password check
+                $_SESSION['manager'] = $username;
+                $conn->query("UPDATE managers SET failed_attempts = 0, lockout_time = NULL WHERE username = '$username'");
+
+            } else {
+                // increment failed attempts and lockout
+                $conn->query("UPDATE managers SET failed_attempts = failed_attempts + 1, lockout_time = NOW() WHERE username = '$username'");
+                die("<h1>Invalid credentials.</h1>");
+            }
+        } else {
+            die("<h1>Invalid credentials.</h1>");
+        }
+    }
+    ?>
+
+    <?php
     // Check if logout is requested
     if (isset($_GET['logout'])) {
         session_destroy();
@@ -73,16 +109,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     // Check login
     if (!isset($_SESSION['manager'])) {
         echo '
-            <main class="form">
-            <section class="panel form-section">
-            <form method="POST" action="manage.php">
-            <h1>Manager Login</h1>
-            <label>Username: <input type="text" name="username" required></label><br>
-            <label>Password: <input type="password" name="password" required></label><br>
-            <button type="submit" name="login">Login</button>
-            </form>
-            </section>
-            </main>'; 
+        <main class="form">
+        <section class="panel form-section">
+
+        <form method="POST" action="manage.php">
+        <h1>Manager Login</h1>
+        <label>Username: <input type="text" name="username" required></label><br>
+        <label>Password: <input type="password" name="password" required></label><br>
+        <button type="submit" name="login">Login</button>
+        </form>
+        </section>
+
+        <section class="panel form-section">
+        <form method="POST" action="manage.php">
+        <h1>Manager Signup</h1>
+        <label>New Username: <input type="text" name="new_username" required></label><br>
+        <label>New Password: <input type="password" name="new_password" required></label><br>
+        <label>Confirm Password: <input type="password" name="confirm_password" required></label><br>
+        <button type="submit" name="signup">Sign Up</button>
+        </form>
+
+        </section>
+        </main>
+    ';
     } else { ?>
         <main class="form">
             <section class="panel form-section manage-section">
