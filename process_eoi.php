@@ -103,7 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 email VARCHAR(100),
                 phone VARCHAR(20),
                 skills INT,
-                other TEXT
+                other TEXT,
+                status VARCHAR(20) DEFAULT 'New'
             );
         ";
         $conn->query($createTableSQL);
