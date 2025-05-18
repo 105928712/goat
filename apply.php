@@ -23,7 +23,7 @@
 
 
             <!-- Create an application form to the swinburne test server -->
-            <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+            <form action="process_eoi.php" method="post" novalidate>
 
                 <!-- Job Reference Number -->
                 <label for="jobRef">Job Reference Number: *</label>
