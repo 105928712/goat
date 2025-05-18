@@ -830,6 +830,17 @@ footer {clear:both;}
 
 
 
+
+/*************************************/
+/*               MANAGE              */
+/*************************************/
+
+fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
+    padding: 0px 5px;
+    width: auto !important;
+}
+
+
 /*************************************/
 /*            ANIMATIONS             */
 /*************************************/

@@ -92,31 +92,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
 
                 <form method="GET" action="manage.php">
                     <h3>Manage EOIs</h3>
-                    <label><input type="radio" name="action" value="list_all" required> List all EOIs</label><br>
-
-
-                    <label><input type="radio" name="action" value="list_job"> List EOIs by Job Reference</label>
-                    <input type="text" name="jobRef"><br>
-
-
-                    <label><input type="radio" name="action" value="list_name"> List EOIs by Applicant Name</label>
-                    <input type="text" name="firstName" placeholder="First name">
-                    <input type="text" name="lastName" placeholder="Last name"><br>
-
-
-                    <label><input type="radio" name="action" value="delete_job"> Delete EOIs by Job Reference</label>
-                    <input type="text" name="deleteJobRef"><br>
-
-
-                    <label><input type="radio" name="action" value="update_status"> Change Status of EOI</label>
-                    EOI Number: <input type="number" name="eoiNumber">
-                    Status: 
-                    <select name="status">
-                        <option value="New">New</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Finalised">Finalised</option>
-                    </select><br>
-
+                    <fieldset class="manage-eoi">
+                        <legend>Actions</legend>
+                        <label><input type="radio" name="action" value="list_all" required> List all EOIs</label>
+                        <label><input type="radio" name="action" value="list_job"> List EOIs by <input type="text" placeholder="Job Reference" name="jobRef"></label>
+                        <label><input type="radio" name="action" value="list_name"> List EOIs by <input type="text" name="firstName" placeholder="First name"> <input type="text" name="lastName" placeholder="Last name"></label>
+                        <label><input type="radio" name="action" value="delete_job"> Delete EOIs by <input type="text" placeholder="Job Reference" name="deleteJobRef"></label>
+                        <label><input type="radio" name="action" value="update_status"> Change Status of <input type="number" placeholder="EOI Number" name="eoiNumber"> to 
+                            <select name="status">
+                                <option value="New">New</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Finalised">Finalised</option>
+                            </select>
+                        </label>
+                    </fieldset>
                     
                     <button type="submit">Submit</button>
                 </form>
