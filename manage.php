@@ -62,6 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     <?php include 'includes/header.inc'; ?>
 
     <?php
+    // Check if logout is requested
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        header("Location: manage.php");
+        exit();
+    }
+
     // Check login
     if (!isset($_SESSION['manager'])) {
         echo '<form method="POST" action="manage.php">
@@ -69,8 +76,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             <label>Username: <input type="text" name="username" required></label><br>
             <label>Password: <input type="password" name="password" required></label><br>
             <button type="submit" name="login">Login</button>
-        </form>'; }
-    ?>
+        </form>'; 
+    } else { ?>
+
+        <!-- Manager Control Panel -->
+        <h2>Welcome, <?php $_SESSION['manager'] ?>! <a href="manage.php?logout">Logout</a></h2>
+
+        <form method="GET" action="manage.php">
+            <h3>Manage EOIs</h3>
+            <label><input type="radio" name="action" value="list_all" required> List all EOIs</label><br>
+
+
+            <label><input type="radio" name="action" value="list_job"> List EOIs by Job Reference</label>
+            <input type="text" name="jobRef"><br>
+
+
+            <label><input type="radio" name="action" value="list_name"> List EOIs by Applicant Name</label>
+            <input type="text" name="firstName" placeholder="First name">
+            <input type="text" name="lastName" placeholder="Last name"><br>
+
+
+            <label><input type="radio" name="action" value="delete_job"> Delete EOIs by Job Reference</label>
+            <input type="text" name="deleteJobRef"><br>
+
+
+            <label><input type="radio" name="action" value="update_status"> Change Status of EOI</label>
+            EOI Number: <input type="number" name="eoiNumber">
+            Status: 
+            <select name="status">
+                <option value="New">New</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Finalised">Finalised</option>
+            </select><br>
+
+            
+            <button type="submit">Submit</button>
+        </form>
+
+    <?php } ?>
+
 
 
 
@@ -78,12 +122,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     
 </body>
 </html>
-
-
-
-
-
-
-
-
-
