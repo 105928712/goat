@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="G.O.A.T Team - Joey Manani & Nima Adel">
+    <meta name="author" content="G.O.A.T Team - Joey Manani, Sienna Virtuoso & Nima Adel">
     <meta name="description" content="View all of our current job vacancies. We'd love you to be part of our team. We're GOAT Solutions. Tomorrow's Innovation, Today.">
     <meta name="keywords" content="GOAT, melbourne, IT, software, development">
     <title>Job Vacancies | GOAT Solutions</title>
