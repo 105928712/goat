@@ -16,6 +16,9 @@
     <?php
 
     require 'settings.php';
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
 
     ?>
 
