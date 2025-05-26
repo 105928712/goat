@@ -17,7 +17,7 @@
         <!-- Create a page title panel -->
         <section class="panel">
             <h1 class="jobs-page-title">Job Openings</h1>
-            <h2>There are currently 5 vacancies</h2>
+            <h2>There are currently 6 vacancies</h2>
         </section>
 
         <!-- Create a grid layout for the job listings -->
