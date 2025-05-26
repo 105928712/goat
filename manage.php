@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'settings.php';
+require 'settings.php';
 
 // Create manager table if it doesn't exist
 $conn->query("CREATE TABLE IF NOT EXISTS managers (

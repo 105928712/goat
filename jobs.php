@@ -13,6 +13,12 @@
     <!-- Navigation Bar -->
     <?php include 'header.inc'; ?>
 
+    <?php
+
+    require 'settings.php';
+
+    ?>
+
     <main>
         <!-- Create a page title panel -->
         <section class="panel">
