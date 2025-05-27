@@ -4,6 +4,8 @@ require 'settings.php';
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    session_start();
+
     // Check if the form data is set
     if (isset($_POST['jobRef']) && isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['dob']) && isset($_POST['gender']) && isset($_POST['address']) && isset($_POST['suburb']) && isset($_POST['state']) && isset($_POST['postcode']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['skills'])) {
         
@@ -24,56 +26,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Validate name fields
         if (!preg_match('/^[A-Za-z\s\-]{1,20}$/', $firstName) || !preg_match('/^[A-Za-z\s\-]{1,20}$/', $lastName)) {
-            header("Location: apply.php?error=Invalid name format. Please only use letters, spaces or hyphens at a maximum of 20 characters.");
+            $_SESSION['error'] = "Invalid name format. Please only use letters, spaces or hyphens at a maximum of 20 characters.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate the date of birth follows the format dd/mm/yyyy
         if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $dob)) {
-            header("Location: apply.php?error=Invalid date format. Please use dd/mm/yyyy.");
+            $_SESSION['error'] = "Invalid date format. Please use yyyy-mm-dd.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate gender 
         if (!in_array($gender, ['Male', 'Female', 'Other'])) {
-            header("Location: apply.php?error=Invalid gender selection.");
+            $_SESSION['error'] = "Invalid gender selection.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate address max 40 and only letters, numbers, periods, hyphens, or apostrophes
         if (!preg_match('/^[\w\s\.\-\']{1,40}$/', $address)) {
-            header("Location: apply.php?error=Invalid address format. Please only use letters, numbers, periods, hyphens, or apostrophes maximum 40 characters.");
+            $_SESSION['error'] = "Invalid address format. Please only use letters, numbers, periods, hyphens, or apostrophes maximum 40 characters.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate suburb max 40 and only letters, spaces or hyphens
         if (!preg_match('/^[A-Za-z\s\-]{1,40}$/', $suburb)) {
-            header("Location: apply.php?error=Invalid suburb format. Please only use letters, spaces or hyphens maximum 40 characters.");
+            $_SESSION['error'] = "Invalid suburb format. Please only use letters, spaces or hyphens maximum 40 characters.";
+            header("Location: apply.php?");
             exit();
         }
 
         // Validate state
         $validStates = ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'];
         if (!in_array($state, $validStates)) {
-            header("Location: apply.php?error=Invalid state selection.");
+            $_SESSION['error'] = "Invalid state selection. Please select a valid Australian state.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate australian postcode exactly 4 digits and between 0200-9999
         if (!preg_match('/^\d{4}$/', $postcode) || $postcode < 0200 || $postcode > 9999) {
-            header("Location: apply.php?error=Invalid postcode format. Please enter a valid 4-digit postcode.");
+            $_SESSION['error'] = "Invalid postcode format. Please enter a valid 4-digit postcode between 0200 and 9999.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate email format https://www.w3schools.com/php/filter_validate_email.asp
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            header("Location: apply.php?error=Invalid email format.");
+            $_SESSION['error'] = "Invalid email format. Please enter a valid email address.";
+            header("Location: apply.php");
             exit();
         }
 
         // Validate phone number 8 to 12 digits with spaces allowed 
         if (!preg_match('/^(?:\d\s*){8,12}$/', $phone)) {
-            header("Location: apply.php?error=Invalid phone number format. Please enter a valid phone number with 8 to 12 digits.");
+            $_SESSION['error'] = "Invalid phone number format. Please enter a valid phone number with 8 to 12 digits.";
+            header("Location: apply.php");
             exit();
         }
 
@@ -112,18 +123,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insert the data
         $stmt = $conn->prepare("INSERT INTO eoi (reference, fullname, address, email, phone, skills, other) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $jobRef, $fullName, $fullAddress, $email, $phone, $skillsBinary, $otherSkills);
-        
+
         if ($stmt->execute()) {
             $eoiNumber = $conn->insert_id;
-            header("Location: apply.php?eoiNumber=$eoiNumber");
+            $_SESSION['EOInumber'] = $eoiNumber; // Store the EOI number in the session
+            header("Location: apply.php");
             exit();
         } else {
-            header("Location: apply.php?error=Database error.");
+            $_SESSION['error'] = "Database Error: " . $stmt->error;
+            header("Location: apply.php");
             exit();
         }
     }
     else {
-        header("Location: apply.php?error=Please fill in all required fields.");
+        $_SESSION['error'] = "Please fill in all required fields.";
+        header("Location: apply.php");
         exit();
     }
 } else {

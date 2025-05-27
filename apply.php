@@ -23,24 +23,28 @@
 
             
             <?php
-            if (isset($_GET['error'])) {
+            session_start();
+
+            if (isset($_SESSION['error'])) {
                 echo '<div class="overlay" id="overlay"></div>';
                 echo '<div class="modal panel fail" id="modal">';
                 echo "<button class='close' onclick='document.getElementById(\"modal\").remove(); document.getElementById(\"overlay\").remove()'>✖</button>";
                 echo "<h2>The following error occurred in your submission:</h2>";
-                echo "<pre>" . htmlspecialchars($_GET['error']) . "</pre>";
+                echo "<pre>" . htmlspecialchars($_SESSION['error']) . "</pre>";
                 echo "<p>Please correct the errors and try again.</p>";
                 echo '</div>';
+
+                session_destroy();
             }
 
-            if (isset($_GET['EOInumber'])) {
+            if (isset($_SESSION['EOInumber'])) {
                 // get the name of the submitter from the db
                 require 'settings.php';
                 if (!$conn) {
                     die('Database connection failed: ' . mysqli_connect_error());
                 }
                 $stmt = $conn->prepare("SELECT fullname FROM eoi WHERE EOInumber = ?");
-                $stmt->bind_param("i", $_GET['EOInumber']);
+                $stmt->bind_param("i", $_SESSION['EOInumber']);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 if ($result->num_rows > 0) {
@@ -54,6 +58,8 @@
                     echo "<p>Your application number is: <strong>" . htmlspecialchars($_GET['EOInumber']) . "</strong></p>";
                     echo '</div>';
                 } 
+
+                session_destroy();
             }
             ?>
 
