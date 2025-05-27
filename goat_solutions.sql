@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2025 at 01:40 AM
+-- Generation Time: May 27, 2025 at 02:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,14 @@ CREATE TABLE `eoi` (
   `other` text DEFAULT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`EOInumber`, `reference`, `fullname`, `address`, `email`, `phone`, `skills`, `other`, `status`) VALUES
+(1, 'sdev1', 'Joey Manani', '24 Wakefield Street, Hawthorn, VIC 3820', 'joey@JOEYMANANI.COM', '0400000001', 7, 'I make a killer coffee', 'New'),
+(2, 'sdev1', 'Sienna Virtuoso', '24 Wakefield Street, Hawthorn, VIC 3122', 'sienna@SIENNAVIRTUOSO.COM', '0400000001', 7, 'I like the colour purple!', 'New');
 
 -- --------------------------------------------------------
 
@@ -87,8 +95,8 @@ CREATE TABLE `managers` (
 --
 
 INSERT INTO `managers` (`id`, `username`, `password`, `failed_attempts`, `lockout_time`) VALUES
-(1, 'joey', 'joey', 1, '2025-05-18 16:27:22'),
-(2, 'sienna', '$2y$10$eoolo3PJZb4TJxhH4kLNseK/1n2AIBqVlxEi44wjkiuJVKVUkyHVS', 0, NULL);
+(1, 'sienna', '$2y$10$eoolo3PJZb4TJxhH4kLNseK/1n2AIBqVlxEi44wjkiuJVKVUkyHVS', 0, NULL),
+(2, 'joey', '$2y$10$6jz..B3D6tbV3uQS2/.2.uoWFnjaV/WMAKC7bCoKn3pmp.wWmqLem', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -127,7 +135,7 @@ ALTER TABLE `eoi`
 -- AUTO_INCREMENT for table `managers`
 --
 ALTER TABLE `managers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
