@@ -663,7 +663,7 @@ summary {
 aside {
     position: fixed;
     z-index: 1000;
-    width: 35%;
+    width: 25%;
     border: 2px solid var(--tertiary);
     bottom: 1%;
     right: 1%;
