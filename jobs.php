@@ -13,24 +13,6 @@
     <!-- Navigation Bar -->
     <?php include 'header.inc'; ?>
 
-    <?php
-
-    require 'settings.php';
-    if (!$conn) {
-        die('Database connection failed: ' . mysqli_connect_error());
-    }
-
-    // Query the database for job listings
-    $result = mysqli_query($conn, 'SELECT * FROM jobs');
-
-    if (mysqli_num_rows($result) > 0) {
-        // while loop goes here to fetch each job listing
-    } else {
-        echo '<h1>No job openings available at the moment.</h1>';
-    }
-    
-
-    ?>
 
     <main>
         <!-- Create a page title panel -->
@@ -41,28 +23,47 @@
 
         <!-- Create a grid layout for the job listings -->
         <div class="jobs-grid">
-            <!-- Job 1: Software Developer -->
-            <section class="panel">
-                <h2 class="job-title"><!--reference--></h2>
-                <h3 class="job-title-extended"><!--name--></h3>
-                <p class="job-description">
-                    <!--description-->
-                </p>
-                <p class="salary-range"><strong>Salary Range:</strong> Up to $<!--salary--> for entry level positions</p>
-                <p class="report-to"><strong>Applicants Report To:</strong> <!--report_to--></p>
-                <h3>Key Responsibilities:</h3>
-                <ul class="job-responsibilities">
-                    <!--responsibilities-->
-                </ul>
-                <h3><u>Required</u> Qualifications, Skills, Knowledge, and Attributes:</h3>
-                <ul class="required-skills">
-                    <!--required_skills-->
-                </ul>
-                <h3><u>Preferred</u> Qualifications, Skills, Knowledge, and Attributes:</h3>
-                <ul class="preferred-skills">
-                    <!--preferred_skills-->
-                </ul>
-            </section>
+
+            <?php
+            require 'settings.php';
+
+            if (!$conn) {
+                die('Database connection failed: ' . mysqli_connect_error());
+            }
+
+
+            // Query the database for job listings
+            $result = mysqli_query($conn, 'SELECT * FROM jobs');
+
+            if (mysqli_num_rows($result) > 0) {
+                // while loop goes here to fetch each job listing
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<section class="panel">';
+                    echo '<h2 class="job-title">' . $row['reference'] . '</h2>';
+                    echo '<h3 class="job-title-extended">' . $row['name'] . '</h3>';
+                    echo '<p class="job-description">' . $row['description'] . '</p>';
+                    echo '<p class="salary-range"><strong>Salary Range:</strong> Up to $' . $row['salary'] . ' for entry level positions</p>';
+                    echo '<p class="report-to"><strong>Applicants Report To:</strong> ' . $row['report_to'] . '</p>';
+                    echo '<h3>Key Responsibilities:</h3>';
+                    echo '<ul class="job-responsibilities">';
+                    echo $row['responsibilities'];
+                    echo '</ul>';
+                    echo '<h3><u>Required</u> Qualifications, Skills, Knowledge, and Attributes:</h3>';
+                    echo '<ul class="required-skills">';
+                    echo $row['required_skills'];
+                    echo '</ul>';
+                    echo '<h3><u>Preferred</u> Qualifications, Skills, Knowledge, and Attributes:</h3>';
+                    echo '<ul class="preferred-skills">';
+                    echo $row['preferred_skills'];
+                    echo '</ul>';
+                    echo '</section>';
+                }
+            } else {
+                echo '<h1>No job openings available at the moment.</h1>';
+            }
+
+
+            ?>
         </div>
 
 
