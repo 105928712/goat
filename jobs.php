@@ -17,8 +17,18 @@
 
     require 'settings.php';
     if (!$conn) {
-        die("Database connection failed: " . mysqli_connect_error());
+        die('Database connection failed: ' . mysqli_connect_error());
     }
+
+    // Query the database for job listings
+    $result = mysqli_query($conn, 'SELECT * FROM jobs');
+
+    if (mysqli_num_rows($result) > 0) {
+        // while loop goes here to fetch each job listing
+    } else {
+        echo '<h1>No job openings available at the moment.</h1>';
+    }
+    
 
     ?>
 
