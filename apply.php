@@ -19,12 +19,41 @@
     <main class="form">
         <section class="panel form-section">
             <h1>Job Application</h1>
+            <p>Please fill out the form below to apply for a job with us. Fields marked with an asterisk (*) are required.</p>
 
+            
             <?php
             if (isset($_GET['error'])) {
-                echo '<p class="fail">' . htmlspecialchars($_GET['error']) . '</p>';
-            } else {
-                echo '<p>Please fill out the form below to apply for a job with us. Fields marked with an asterisk (*) are required.</p>';
+                echo '<div class="overlay" id="overlay"></div>';
+                echo '<div class="modal panel fail" id="modal">';
+                echo "<button class='close' onclick='document.getElementById(\"modal\").remove(); document.getElementById(\"overlay\").remove()'>✖</button>";
+                echo "<h2>The following error occurred in your submission:</h2>";
+                echo "<pre>" . htmlspecialchars($_GET['error']) . "</pre>";
+                echo "<p>Please correct the errors and try again.</p>";
+                echo '</div>';
+            }
+
+            if (isset($_GET['EOInumber'])) {
+                // get the name of the submitter from the db
+                require 'settings.php';
+                if (!$conn) {
+                    die('Database connection failed: ' . mysqli_connect_error());
+                }
+                $stmt = $conn->prepare("SELECT fullname FROM eoi WHERE EOInumber = ?");
+                $stmt->bind_param("i", $_GET['EOInumber']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows > 0) {
+                    // if the EOI number exists, display a thank you message, otherwise don't display anything as user might've manipulated the URL
+                    $row = $result->fetch_assoc();
+                    $name = htmlspecialchars($row['fullname']);
+                    echo '<div class="overlay" id="overlay"></div>';
+                    echo '<div class="modal panel" id="modal">';
+                    echo "<button class='close' onclick='document.getElementById(\"modal\").remove(); document.getElementById(\"overlay\").remove()'>✖</button>";
+                    echo "<h2>Thank you for your application, " . $name . "!</h2>";
+                    echo "<p>Your application number is: <strong>" . htmlspecialchars($_GET['EOInumber']) . "</strong></p>";
+                    echo '</div>';
+                } 
             }
             ?>
 

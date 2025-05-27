@@ -655,7 +655,7 @@ aside {
 }
 
 /* aside panel has a close button that should appear in the top right corner */
-#trainingPanel .close {
+.close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -690,11 +690,32 @@ main.form {
     width: 100%;
 }
 
-.form-section p.fail {
-    color: #fe5f55;
-    font-size: 1.2em;
-    font-weight: 600;
-} 
+.form-section .modal {
+    position: fixed;
+    z-index: 1000;
+    width: 50%;
+    height: 50%;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    background-color: var(--form-bg);
+}
+
+.form-section .modal.fail {
+    border: 2px solid var(--tertiary);
+}
+
+.form-section .overlay {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.001;
+    animation: fadeIn 0.5s ease-out forwards;
+}
 
 /* labels should be bold for accessibility */
 form label {
