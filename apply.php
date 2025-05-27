@@ -33,8 +33,6 @@
                 echo "<pre>" . htmlspecialchars($_SESSION['error']) . "</pre>";
                 echo "<p>Please correct the errors and try again.</p>";
                 echo '</div>';
-
-                session_destroy();
             }
 
             if (isset($_SESSION['EOInumber']) && isset($_SESSION['name'])) {
@@ -47,7 +45,7 @@
                 echo '</div>';
             } 
 
-                session_destroy();
+            session_destroy();
             ?>
 
             <!-- Create an application form to the swinburne test server -->
