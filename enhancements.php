@@ -6,7 +6,7 @@
     <meta name="author" content="G.O.A.T Team - Sienna Virtuoso">
     <meta name="description" content="Enhancements to the GOAT Solutions application process.">
     <meta name="keywords" content="GOAT, melbourne, IT, software, development">
-    <title>Enhancement | GOAT Solutions</title>
+    <title>Enhancements | GOAT Solutions</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
