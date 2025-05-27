@@ -127,6 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $eoiNumber = $conn->insert_id;
             $_SESSION['EOInumber'] = $eoiNumber; // Store the EOI number in the session
+            $_SESSION['name'] = $fullName;
             header("Location: apply.php");
             exit();
         } else {
