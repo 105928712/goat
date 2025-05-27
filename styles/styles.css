@@ -638,6 +638,10 @@ section h3 {
     margin-top: 20px;
 }
 
+summary > h3 {
+    display: inline-block;
+}
+
 /* don't number the list items */
 .no-number {
     list-style-type: none;
