@@ -44,20 +44,29 @@
                     echo '<h2 class="job-title">' . $row['reference'] . '</h2>';
                     echo '<h3 class="job-title-extended">' . $row['name'] . '</h3>';
                     echo '<p class="job-description">' . $row['description'] . '</p>';
-                    echo '<p class="salary-range"><strong>Salary Range:</strong> Up to $' . $row['salary'] . ' for entry level positions</p>';
-                    echo '<p class="report-to"><strong>Applicants Report To:</strong> ' . $row['report_to'] . '</p>';
-                    echo '<h3>Key Responsibilities:</h3>';
+                    echo '<p class="salary-range"><strong>Salary:</strong> Up to $' . $row['salary'] . '</p>';
+                    echo '<p class="report-to"><strong>Report To:</strong> ' . $row['report_to'] . '</p>';
+                    echo '<details>';
+                    echo '<summary><h3>Key Responsibilities:</summary>';
                     echo '<ul class="job-responsibilities">';
                     echo $row['responsibilities'];
                     echo '</ul>';
-                    echo '<h3><u>Required</u> Qualifications, Skills, Knowledge, and Attributes:</h3>';
+                    echo '</details>';
+                    echo '<details class="qualifications">';
+                    echo '<summary><h3>Qualifications:</h3></summary>';
+                    echo '<details>';
+                    echo '<summary><h3>Required:</h3></summary>';
                     echo '<ul class="required-skills">';
                     echo $row['required_skills'];
                     echo '</ul>';
-                    echo '<h3><u>Preferred</u> Qualifications, Skills, Knowledge, and Attributes:</h3>';
+                    echo '</details>';
+                    echo '<details>';
+                    echo '<summary><h3>Preferred:</h3></summary>';
                     echo '<ul class="preferred-skills">';
                     echo $row['preferred_skills'];
                     echo '</ul>';
+                    echo '</details>';
+                    echo '</details>';
                     echo '</section>';
                 }
             }
@@ -66,7 +75,8 @@
         </div>
 
 
-        <aside class="panel">
+        <aside class="panel" id="trainingPanel">
+            <button class="close" onclick="document.getElementById('trainingPanel').remove()">✖</button>
             <h2>Experience Award-Winning Training</h2>
             <p>At GOAT, we prioritise your training and wellbeing. We have an award-winning training process which 
                 will guarantee your satisfaction. Whether you're just starting out, or completely dynamic, 
