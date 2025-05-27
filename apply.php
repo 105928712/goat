@@ -37,30 +37,17 @@
                 session_destroy();
             }
 
-            if (isset($_SESSION['EOInumber'])) {
-                // get the name of the submitter from the db
-                require 'settings.php';
-                if (!$conn) {
-                    die('Database connection failed: ' . mysqli_connect_error());
-                }
-                $stmt = $conn->prepare("SELECT fullname FROM eoi WHERE EOInumber = ?");
-                $stmt->bind_param("i", $_SESSION['EOInumber']);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                if ($result->num_rows > 0) {
-                    // if the EOI number exists, display a thank you message, otherwise don't display anything as user might've manipulated the URL
-                    $row = $result->fetch_assoc();
-                    $name = htmlspecialchars($row['fullname']);
-                    echo '<div class="overlay" id="overlay"></div>';
-                    echo '<div class="modal panel" id="modal">';
-                    echo "<button class='close' onclick='document.getElementById(\"modal\").remove(); document.getElementById(\"overlay\").remove()'>✖</button>";
-                    echo "<h2>Thank you for your application, " . $name . "!</h2>";
-                    echo "<p>Your application number is: <strong>" . htmlspecialchars($_GET['EOInumber']) . "</strong></p>";
-                    echo '</div>';
-                } 
+            if (isset($_SESSION['EOInumber']) && isset($_SESSION['name'])) {
+                // if the EOI number exists, display a thank you message, otherwise don't display anything as user might've manipulated the URL
+                echo '<div class="overlay" id="overlay"></div>';
+                echo '<div class="modal panel" id="modal">';
+                echo "<button class='close' onclick='document.getElementById(\"modal\").remove(); document.getElementById(\"overlay\").remove()'>✖</button>";
+                echo "<h2>Thank you for your application, " . $_SESSION["name"] . "!</h2>";
+                echo "<p>Your application number is: <strong>" . $_SESSION['EOInumber'] . "</strong></p>";
+                echo '</div>';
+            } 
 
                 session_destroy();
-            }
             ?>
 
             <!-- Create an application form to the swinburne test server -->
