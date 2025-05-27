@@ -24,7 +24,6 @@
     --form-bg: #ffffff;
 }
 
-/* Base Styles for Body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -33,14 +32,12 @@ body {
     color: var(--font);
 }
 
-/* set h1 size and colour */
 h1 {
     font-size: 2.5rem;
     margin-bottom: 15px;
     color: var(--primary);
 }
 
-/* set p sizes */
 p {
     font-size: 1em;
     margin-bottom: 15px;
@@ -68,7 +65,7 @@ p {
 
 
 
-/* Header background and overlay */
+/* Header background and overlay with a gradient. Position this on top of all other content */
 .site-header {
     background: linear-gradient(145deg, var(--primary), var(--secondary));
     padding: 1rem 0;
@@ -76,10 +73,10 @@ p {
     position: sticky;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
 }
 
-/* container for logo and nav */
+/* container for logo and navigation */
 .header-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -89,14 +86,14 @@ p {
     padding: 0 2rem;
 }
 
-/* define the logo styles - ensure its not too big */
+/* set the logo to display as a small icon in the top right ensuring it doesn't bleed beyond its boundary */
 .logo img {
     height: 48px;
     object-fit: contain;
     padding: 4px;
 }
 
-/* don't style the nav as a list */
+/* Remove default UL styling for the navigation */
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -105,7 +102,7 @@ p {
     padding: 0;
 }
 
-/* style the links */
+/* ..And modify them to render as nice links instead */
 .main-nav a {
     color: var(--font-light);
     font-weight: 600;
@@ -147,7 +144,6 @@ p {
 
 
 
-/* Footer style */
 .site-footer {
     background-color: var(--primary);
     color: #fff;
@@ -155,7 +151,7 @@ p {
     font-size: 1em;
 }
 
-/* footer container should be flex */
+/* Make the footer a flexbox */
 .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -165,19 +161,17 @@ p {
     margin: 0 auto;
 }
 
-/* define how we want to flex it */
 .footer-container > div {
     flex: 1 1 250px; /* shorthand flex-grow, flex-shrink, flex-basis */
 }
 
-/* how to style the motto */
+/* Motto styling */
 .footer-container h3 {
     margin-bottom: 10px;
     color: var(--primary-light);
     font-size: 1.2em;
 }
 
-/* how we want to style the paragraphs and lists */
 .footer-container p,
 .footer-container li {
     line-height: 1.6;
@@ -191,7 +185,7 @@ p {
     margin: 0;
 }
 
-/* list items should be spaced */
+/* and space the items */
 .footer-nav ul li {
     margin-bottom: 8px;
 }
@@ -214,17 +208,17 @@ p {
     text-decoration: underline;
 }
 
-/* stylise the copyright text at the bottom */
+/* Copyright text */
 .footer-bottom {
     text-align: center;
     margin-top: 30px;
     font-size: 0.9em;
-    color: #aaa;
+    color: #eee;
 }
 
 /* style the jira and github links */
 .footer-bottom a {
-    color: #ddd;
+    color: #eee;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -261,7 +255,7 @@ p {
 
 /* This section is licensed under the Joey Manani Licensing Agreement as specified in LICENSE */
 
-/* sections should have internal padding for content */
+/* sections should have internal padding for content to prevent content sticking to the section border */
 section.intro, section.statements, section.objectives, section.training, section.award {
     padding: 5vh;
 }
@@ -349,7 +343,9 @@ section.intro div {
     margin-right: 10rem;
 }
 
-/* define statements flex container */
+
+
+
 section.statements {
     display: flex;
     justify-content: center;
@@ -358,7 +354,7 @@ section.statements {
     background-color: var(--quaternary);
 }
 
-/* three columed grid layout */
+/* three columns */
 section.statements div.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -366,17 +362,15 @@ section.statements div.grid {
     padding: 5rem;
 }
 
-/* h2 colour to contrast bg */
 section.statements h2 {
     color: var(--primary-light)
 }
 
-/* paragraph colour to contrast bg */
 section.statements p {
     color: var(--font-light);
 }
 
-/* objectives container should be flexible and 100vh */
+/* objectives container should be flexible and a height of 100vh */
 section.objectives {
     display: flex;
     height: 100vh;
@@ -404,7 +398,8 @@ section.objectives ul li:hover {
     transform: scale(1.05);
 }
 
-/* training section */
+
+
 section.training {
     display: flex;
     justify-content: center;
@@ -415,18 +410,15 @@ section.training {
     background-color: var(--quinary);
 }
 
-/* contrast h2 and p with bg */
 section.training h2 {
     color: var(--primary-light)
 }
 
-/* contrast h2 and p with bg */
 section.training p {
     margin: 0 20px;
     color: var(--font-light)
 }
 
-/* we want the image to be small */
 section.training img {
     min-width: 250px;
     width: 40%;
@@ -435,19 +427,18 @@ section.training img {
     transition: transform 0.3s ease-in-out;
 }
 
-/* make the image grow on hover */
 section.training img:hover {
     transform: scale(1.05);
 }
 
-/* have some margin to the image */
 section.training div {
     width: 100%;
     height: auto;
     margin-left: 10rem;
 }
 
-/* award small section */
+
+/* award small section of 30vh */
 section.award {
     display: flex;
     justify-content: center;
@@ -458,7 +449,6 @@ section.award {
     padding: 0 5rem;
 }
 
-/* italicise the p */
 section.award p {
     margin: 0px;
     font-style: italic;
@@ -472,7 +462,6 @@ section.award a {
     position: relative;
 }
 
-/* and do the pretty underline thingy */
 section.award a::after {
     content: '';
     display: block;
@@ -485,7 +474,6 @@ section.award a::after {
     left: 0;
 }
 
-/* make the underline grow on hover */
 section.award a:hover::after,
 section.award a.active::after {
     width: 100%;
@@ -567,7 +555,7 @@ section.award a.active::after {
 
 
 
-/* Create a grid layout for jobs that auto fits */
+/* Create a grid layout for jobs that auto fits to the width of the screen */
 .jobs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -582,7 +570,6 @@ section.award a.active::after {
     color: var(--primary);
 }
 
-/* Job Title Styling */
 .job-title {
     font-size: 2rem;
     font-weight: bold;
@@ -592,13 +579,11 @@ section.award a.active::after {
     letter-spacing: 1px;
 }
 
-/* Job Description styling  */
 .job-description {
     font-size: 1rem;
     margin-bottom: 15px;
 }
 
-/* Salary and report Section */
 .salary-range,
 .report-to {
     font-size: 1rem;
@@ -606,25 +591,22 @@ section.award a.active::after {
     margin: 10px 0;
 }
 
-/* Key responsibilities list... */
+/* Key responsibilities list ... */
 .job-responsibilities {
     list-style-type: disc;
     margin-left: 20px;
     margin-bottom: 15px;
 }
 
-/* job responsibilities list items */
 .job-responsibilities li {
     font-size: 1rem;
 }
 
-/* skills List */
 .required-skills, .preferred-skills {
     list-style-type: square;
     margin-left: 20px;
 }
 
-/* required skills list items */
 .required-skills li, .preferred-skills li {
     font-size: 1rem;
     margin-bottom: 8px;
@@ -638,10 +620,12 @@ section h3 {
     margin-top: 20px;
 }
 
+/* ensure the h3 headings are inline with the dropdown arrow marker as h3 is display:block by default */
 summary > h3 {
     display: inline;
 }
 
+/* spacing between dropdowns */
 details {
     margin-top: 15px;
 }
@@ -650,6 +634,7 @@ details.qualifications > details > summary {
     margin-left: 15px;
 }
 
+/* accessibility to reveal that the dropdowns are clickable */
 summary {
     cursor: pointer;
 }
@@ -659,7 +644,7 @@ summary {
     list-style-type: none;
 }
 
-/* as per the requirements we need an aside with 25% width and border */
+/* as per the requirements we need an aside with 25% width and border - modified this to appear on top as a fixed element */
 aside {
     position: fixed;
     z-index: 1000;
@@ -669,6 +654,7 @@ aside {
     right: 1%;
 }
 
+/* aside panel has a close button that should appear in the top right corner */
 #trainingPanel .close {
     position: absolute;
     top: 10px;
@@ -699,7 +685,6 @@ main.form {
     animation: fadeIn 1s ease-out forwards;
 }
 
-/* form section */
 .form-section {
     max-width: 700px;
     width: 100%;
@@ -711,14 +696,14 @@ main.form {
     font-weight: 600;
 } 
 
-/* labels should be bold */
+/* labels should be bold for accessibility */
 form label {
     display: block;
     margin-top: 15px;
     font-weight: 600;
 }
 
-/* legends should be bold too */
+/* legends should be bold too also for accessibility */
 form legend { font-weight: 600; }
 
 /* stylise the form inputs */
@@ -747,7 +732,6 @@ fieldset label {
     font-weight: normal;
 }
 
-/* ensure the fieldset inputs are inline and have some margin */
 fieldset input {
     width: auto;
     margin-right: 6px;
@@ -777,7 +761,6 @@ form button {
     transition: background-color 0.3s ease;
 }
 
-/* hover animation to zoom in a little bit */
 form button:hover {
     transform: scale(1.03);
     background-color: var(--secondary);
@@ -812,13 +795,11 @@ form textarea:focus {
 
 
 
-/* styles for the definition list */
 dl, dt { 
     margin: 0.5em;
     padding: 0.5em;
 }
 
-/* set the definition list dt to be bold */
 dt {
     font-weight: bolder;
 }
@@ -829,7 +810,7 @@ table.center {
     margin-right: auto;
 }
 
-/* right align student IDs as per requirements...??!! */
+/* right align student IDs as per requirements */
 .right {
     text-align: right;
 }
@@ -847,10 +828,10 @@ th:hover, td:hover {
     transition: transform 0.1s ease-in-out;
 }
 
-/* migrate from floats to grid because i (joey) added more sections */
+/* use a grid layout with two columns */
 #about-sections {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* two columns */
+    grid-template-columns: 1fr 1fr;
     text-align: center;
     justify-content: center;
 }
@@ -858,7 +839,6 @@ th:hover, td:hover {
 /* ensure the footer doesn't float with the tables and photos */
 footer {clear:both;}
 
-/* add border to photo - the section is floated right, should be okay and meet reqs */
 #photos figure {
     border: 2px solid var(--tertiary);
     border-radius: 5px;
@@ -880,6 +860,7 @@ footer {clear:both;}
     margin: 20px 0;
 }
 
+/* allow inputs to be auto widthed to prevent them taking up the entire width of the table */
 fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     padding: 0px 5px;
     width: auto !important;
@@ -894,7 +875,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
 
 
 
-/* keyframes for fadein effect */
 @keyframes fadeIn {
     0% {
         opacity: 0.001;
@@ -904,7 +884,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     }
 }
 
-/* Define letterSpacing animation */
 @keyframes letterSpacing {
     0% {
         letter-spacing: 0.2em;
@@ -914,7 +893,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     }
 }
 
-/* Define shrink animation */
 @keyframes shrink {
     0% {
         transform: scale(1);
@@ -924,7 +902,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     }
 }
 
-/* move left animation */
 @keyframes x-shift {
     0% {
         transform: scale(0.5) translateX(0);
@@ -934,7 +911,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     }
 }
 
-/* fade out animation */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -944,7 +920,6 @@ fieldset.manage-eoi > label > input, fieldset.manage-eoi > label > select {
     }
 }
 
-/* fade in hidden animation (cannot be faded so its more a cut) */
 @keyframes fadeInHidden {
     0% {
         display: none;
