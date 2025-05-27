@@ -59,7 +59,9 @@
                     echo '</section>';
                 }
             } else {
-                echo '<h1>No job openings available at the moment.</h1>';
+                echo '<section class="panel">';
+                echo '<h2>No job openings available at the moment.</h2>';
+                echo '</section>';
             }
 
 
