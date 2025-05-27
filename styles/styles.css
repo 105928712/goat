@@ -354,7 +354,7 @@ section.statements {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 80vh;
     background-color: var(--quaternary);
 }
 
@@ -411,7 +411,7 @@ section.training {
     align-items: center;
     flex-direction: row;
     padding: 10rem;
-    height: 40vh;
+    height: 60vh;
     background-color: var(--quinary);
 }
 
@@ -422,6 +422,7 @@ section.training h2 {
 
 /* contrast h2 and p with bg */
 section.training p {
+    margin: 0 20px;
     color: var(--font-light)
 }
 
@@ -452,7 +453,7 @@ section.award {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 15vh;
+    height: 30vh;
     background-color: var(--primary-light);
     padding: 0 5rem;
 }
@@ -535,10 +536,11 @@ section.award a.active::after {
     section.training {
         padding: 2rem;
         font-size: small;
+        height: auto;
     }
 
     section.training img {
-        width: 80%;
+        width: 50%;
     }
 
     section.training div {
