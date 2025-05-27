@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Validate suburb max 40 and only letters, spaces or hyphens
         if (!preg_match('/^[A-Za-z\s\-]{1,40}$/', $suburb)) {
             $_SESSION['error'] = "Invalid suburb format. Please only use letters, spaces or hyphens maximum 40 characters.";
-            header("Location: apply.php?");
+            header("Location: apply.php");
             exit();
         }
 
@@ -93,6 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $bit2 = in_array('HTML', $_POST['skills']) ? 1 : 0;
         $bit3 = in_array('CSS', $_POST['skills']) ? 1 : 0;
         $skillsBinary = bindec("$bit1$bit2$bit3");
+
+        if ($skillsBinary !== 7) {
+            $_SESSION['error'] = "You need to select all of the required technical skills to be eligible for a job.";
+            header("Location: apply.php");
+            exit();
+        }
 
         // Concatenate full name
         $fullName = $firstName . ' ' . $lastName;
