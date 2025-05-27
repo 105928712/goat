@@ -44,7 +44,7 @@ CREATE TABLE `eoi` (
 --
 
 INSERT INTO `eoi` (`EOInumber`, `reference`, `fullname`, `address`, `email`, `phone`, `skills`, `other`, `status`) VALUES
-(1, 'sdev1', 'Joey Manani', '24 Wakefield Street, Hawthorn, VIC 3820', 'joey@JOEYMANANI.COM', '0400000001', 7, 'I make a killer coffee', 'New'),
+(1, 'sdev1', 'Joey Manani', '24 Wakefield Street, Hawthorn, VIC 3122', 'joey@JOEYMANANI.COM', '0400000001', 7, 'I make a killer coffee', 'New'),
 (2, 'sdev1', 'Sienna Virtuoso', '24 Wakefield Street, Hawthorn, VIC 3122', 'sienna@SIENNAVIRTUOSO.COM', '0400000001', 7, 'I like the colour purple!', 'New');
 
 -- --------------------------------------------------------
